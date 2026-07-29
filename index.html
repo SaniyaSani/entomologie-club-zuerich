@@ -1,0 +1,889 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Studentischer Entomologie-Club Zürich – Exkursionen, Bestimmungsabende und Projekte rund um Insekten und Biodiversität."
+    />
+    <title>Studentischer Entomologie-Club Zürich</title>
+
+    <style>
+      /* ===== FARBEN: Hier kannst du später die gesamte Farbwelt ändern ===== */
+      :root {
+        --cream: #fbf7ee;
+        --paper: #fffdf8;
+        --forest: #214b3b;
+        --forest-dark: #15372b;
+        --blue: #1038b7;
+        --blue-dark: #071d69;
+        --turquoise: #1fa6bd;
+        --sky: #378dd0;
+        --mint: #deece4;
+        --pale-blue: #dfe9fb;
+        --ink: #1c2f39;
+        --muted: #60737a;
+        --line: rgba(16, 56, 183, 0.14);
+        --shadow: 0 22px 60px rgba(7, 29, 105, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--cream);
+        color: var(--ink);
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--blue-dark);
+        font-family: Georgia, "Times New Roman", serif;
+      }
+
+      /* ===== ВЕРХНЕЕ МЕНЮ ===== */
+      .site-header {
+        align-items: center;
+        backdrop-filter: blur(14px);
+        background: rgba(251, 247, 238, 0.9);
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        padding: 18px clamp(22px, 6vw, 90px);
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+
+      .brand {
+        align-items: center;
+        display: flex;
+        gap: 11px;
+      }
+
+      .brand-logo {
+        border-radius: 50%;
+        box-shadow: 0 4px 16px rgba(7, 29, 105, 0.13);
+        display: block;
+        height: 54px;
+        object-fit: cover;
+        width: 54px;
+      }
+
+      .brand strong,
+      .brand small {
+        display: block;
+      }
+
+      .brand strong {
+        color: var(--blue-dark);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 17px;
+      }
+
+      .brand small {
+        color: var(--turquoise);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        margin-top: 3px;
+        text-transform: uppercase;
+      }
+
+      nav {
+        display: flex;
+        gap: clamp(18px, 3vw, 40px);
+      }
+
+      nav a {
+        color: var(--blue-dark);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      nav a:hover,
+      nav a:focus-visible {
+        color: var(--turquoise);
+      }
+
+      /* ===== ГЛАВНЫЙ ЭКРАН ===== */
+      .hero {
+        display: grid;
+        gap: clamp(36px, 7vw, 100px);
+        grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+        margin: 0 auto;
+        max-width: 1380px;
+        min-height: 720px;
+        overflow: hidden;
+        padding: clamp(72px, 9vw, 130px) clamp(24px, 7vw, 100px);
+      }
+
+      .hero-copy {
+        align-self: center;
+      }
+
+      .eyebrow,
+      .section-label {
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        margin-bottom: 18px;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-size: clamp(52px, 6.6vw, 92px);
+        font-weight: 500;
+        letter-spacing: -0.055em;
+        line-height: 0.94;
+        margin-bottom: 30px;
+      }
+
+      h1 span {
+        color: var(--turquoise);
+        display: block;
+        font-style: italic;
+      }
+
+      .hero-text {
+        color: var(--muted);
+        font-size: clamp(17px, 1.6vw, 21px);
+        line-height: 1.75;
+        max-width: 620px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 36px;
+      }
+
+      .button {
+        align-items: center;
+        border-radius: 999px;
+        display: inline-flex;
+        font-size: 14px;
+        font-weight: 800;
+        justify-content: center;
+        min-height: 50px;
+        padding: 0 25px;
+        transition:
+          transform 180ms ease,
+          background 180ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+      }
+
+      .button-primary {
+        background: var(--forest);
+        box-shadow: 0 12px 28px rgba(33, 75, 59, 0.18);
+        color: white;
+      }
+
+      .button-secondary {
+        border: 1px solid rgba(33, 75, 59, 0.24);
+        color: var(--forest);
+      }
+
+      .hero-points {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 28px;
+        list-style: none;
+        margin: 36px 0 0;
+        padding: 0;
+      }
+
+      .hero-points li {
+        color: var(--forest);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .hero-points li::before {
+        color: var(--turquoise);
+        content: "✦";
+        margin-right: 8px;
+      }
+
+      .hero-art {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        min-height: 480px;
+        position: relative;
+      }
+
+      .hero-art::before {
+        background:
+          radial-gradient(
+            circle at 26% 24%,
+            rgba(55, 141, 208, 0.24),
+            transparent 34%
+          ),
+          var(--mint);
+        border-radius: 47% 53% 56% 44% / 59% 39% 61% 41%;
+        content: "";
+        height: min(42vw, 560px);
+        min-height: 430px;
+        min-width: 390px;
+        position: absolute;
+        transform: rotate(-6deg);
+        width: min(40vw, 520px);
+      }
+
+      .hero-logo {
+        background: white;
+        border: 8px solid rgba(255, 255, 255, 0.85);
+        border-radius: 50%;
+        box-shadow: var(--shadow);
+        display: block;
+        height: auto;
+        transform: rotate(3deg);
+        width: min(78%, 390px);
+        z-index: 1;
+      }
+
+      /* ===== ОБЩИЕ СЕКЦИИ ===== */
+      .section {
+        margin: 0 auto;
+        max-width: 1380px;
+        padding: clamp(80px, 9vw, 130px) clamp(24px, 7vw, 100px);
+      }
+
+      h2 {
+        font-size: clamp(37px, 4.8vw, 63px);
+        font-weight: 500;
+        letter-spacing: -0.04em;
+        line-height: 1.04;
+        margin-bottom: 24px;
+      }
+
+      .intro {
+        border-top: 1px solid var(--line);
+        display: grid;
+        gap: 60px;
+        grid-template-columns: 0.9fr 1.1fr;
+      }
+
+      .intro-copy p,
+      .resource-card p {
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.75;
+      }
+
+      /* ===== НОВОСТИ ===== */
+      .news-section {
+        background: linear-gradient(135deg, var(--blue-dark), var(--forest));
+        max-width: none;
+      }
+
+      .news-inner {
+        margin: 0 auto;
+        max-width: 1180px;
+      }
+
+      .news-section h2,
+      .news-card h3 {
+        color: white;
+      }
+
+      .news-section .section-label {
+        color: #84deea;
+      }
+
+      .news-grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 50px;
+      }
+
+      .news-card {
+        background: rgba(255, 255, 255, 0.075);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        min-height: 270px;
+        padding: 30px;
+        transition:
+          background 180ms ease,
+          transform 180ms ease;
+      }
+
+      .news-card:hover {
+        background: rgba(255, 255, 255, 0.11);
+        transform: translateY(-4px);
+      }
+
+      .news-meta {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 55px;
+      }
+
+      .news-meta span {
+        background: var(--pale-blue);
+        border-radius: 999px;
+        color: var(--blue);
+        font-size: 10px;
+        font-weight: 800;
+        padding: 7px 10px;
+        text-transform: uppercase;
+      }
+
+      .news-meta time {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 12px;
+      }
+
+      .news-card h3 {
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 1.1;
+        margin-bottom: 15px;
+      }
+
+      .news-card p {
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      /* ===== ФОТОГАЛЕРЕЯ ===== */
+      .gallery-section {
+        background: var(--paper);
+        max-width: none;
+      }
+
+      .gallery-inner {
+        margin: 0 auto;
+        max-width: 1180px;
+      }
+
+      .gallery-intro {
+        color: var(--muted);
+        font-size: 17px;
+        line-height: 1.7;
+        max-width: 650px;
+      }
+
+      .gallery-grid {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: repeat(3, 1fr);
+        margin-top: 45px;
+      }
+
+      .gallery-card {
+        margin: 0;
+      }
+
+      .photo-frame {
+        aspect-ratio: 4 / 3;
+        background: var(--pale-blue);
+        border: 1px solid var(--line);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .photo-frame img {
+        height: 100%;
+        inset: 0;
+        object-fit: cover;
+        position: absolute;
+        width: 100%;
+        z-index: 1;
+      }
+
+      .photo-placeholder {
+        align-items: center;
+        background:
+          radial-gradient(
+            circle at 78% 28%,
+            rgba(31, 166, 189, 0.28),
+            transparent 30%
+          ),
+          linear-gradient(145deg, var(--pale-blue), var(--mint));
+        color: var(--blue);
+        display: flex;
+        flex-direction: column;
+        inset: 0;
+        justify-content: center;
+        position: absolute;
+      }
+
+      .photo-placeholder::before {
+        content: "⌑";
+        font-size: 48px;
+        margin-bottom: 12px;
+      }
+
+      .photo-placeholder span {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 22px;
+      }
+
+      .photo-placeholder small {
+        color: var(--muted);
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        margin-top: 8px;
+      }
+
+      .gallery-card figcaption {
+        color: var(--blue-dark);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 21px;
+        padding: 15px 2px 0;
+      }
+
+      /* ===== ПРОГРАММА И ДОКУМЕНТЫ ===== */
+      .resources {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: 1.25fr 0.75fr;
+      }
+
+      .resource-card {
+        border: 1px solid var(--line);
+        min-height: 370px;
+        padding: clamp(30px, 4vw, 55px);
+      }
+
+      .resource-tool {
+        background: var(--pale-blue);
+      }
+
+      .resource-docs {
+        background: var(--mint);
+      }
+
+      .resource-icon {
+        align-items: center;
+        background: var(--forest);
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        font-size: 20px;
+        height: 50px;
+        justify-content: center;
+        margin-bottom: 30px;
+        width: 50px;
+      }
+
+      .resource-card h2 {
+        font-size: clamp(31px, 3.4vw, 47px);
+      }
+
+      .disabled {
+        background: rgba(33, 75, 59, 0.12);
+        color: var(--forest);
+        cursor: not-allowed;
+        margin-top: 15px;
+      }
+
+      /* ===== КОНТАКТ ===== */
+      .contact-section {
+        align-items: center;
+        background: linear-gradient(
+          135deg,
+          var(--blue),
+          var(--turquoise) 64%,
+          var(--forest)
+        );
+        color: white;
+        display: flex;
+        flex-direction: column;
+        padding: clamp(85px, 10vw, 140px) 24px;
+        text-align: center;
+      }
+
+      .contact-section .section-label {
+        color: #d8f8fb;
+      }
+
+      .contact-section h2 {
+        color: white;
+        max-width: 850px;
+      }
+
+      .contact-section > p:not(.section-label) {
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 18px;
+        line-height: 1.7;
+        max-width: 600px;
+      }
+
+      .button-light {
+        background: var(--paper);
+        color: var(--forest);
+        margin-top: 18px;
+      }
+
+      .contact-section small {
+        color: rgba(255, 255, 255, 0.65);
+        margin-top: 18px;
+      }
+
+      footer {
+        background: var(--blue-dark);
+        color: rgba(255, 255, 255, 0.6);
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 12px;
+        gap: 18px;
+        justify-content: space-between;
+        padding: 34px clamp(24px, 7vw, 100px);
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      .footer-logo {
+        border-radius: 50%;
+        height: 34px;
+        margin-right: 9px;
+        object-fit: cover;
+        vertical-align: middle;
+        width: 34px;
+      }
+
+      /* ===== ВЕРСИЯ ДЛЯ ТЕЛЕФОНА ===== */
+      @media (max-width: 900px) {
+        .hero,
+        .intro,
+        .resources {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-art {
+          min-height: 500px;
+        }
+
+        .news-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .news-card {
+          min-height: 220px;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .site-header {
+          position: static;
+        }
+
+        nav {
+          display: none;
+        }
+
+        .hero {
+          min-height: auto;
+          padding-top: 70px;
+        }
+
+        .hero-art {
+          min-height: 390px;
+        }
+
+        .hero-art::before {
+          height: 350px;
+          min-height: 350px;
+          min-width: 310px;
+          width: 330px;
+        }
+
+        footer {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#start" aria-label="Zur Startseite">
+        <img
+          class="brand-logo"
+          src="images/logo.png"
+          alt="Logo des Studentischen Entomologie-Clubs Zürich"
+        />
+        <span>
+          <strong>Entomologie-Club</strong>
+          <small>Zürich</small>
+        </span>
+      </a>
+
+      <nav aria-label="Hauptnavigation">
+        <a href="#ueber-uns">Über uns</a>
+        <a href="#aktuelles">Aktuelles</a>
+        <a href="#fotos">Fotos</a>
+        <a href="#projekte">Projekte</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="start">
+        <div class="hero-copy">
+          <p class="eyebrow">Studentischer Entomologie-Club Zürich</p>
+          <h1>
+            Die Welt der Insekten
+            <span>gemeinsam entdecken.</span>
+          </h1>
+          <p class="hero-text">
+            Ein studentischer Verein für alle, die Insekten beobachten,
+            bestimmen, erforschen oder einfach faszinierend finden.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#kontakt">Mitmachen</a>
+            <a class="button button-secondary" href="#aktuelles">
+              Neuigkeiten ansehen
+            </a>
+          </div>
+          <ul class="hero-points">
+            <li>Exkursionen</li>
+            <li>Bestimmungsabende</li>
+            <li>Wissensaustausch</li>
+          </ul>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <img class="hero-logo" src="images/logo.png" alt="" />
+        </div>
+      </section>
+
+      <section class="section intro" id="ueber-uns">
+        <div>
+          <p class="section-label">Über uns</p>
+          <h2>Kleine Tiere. Riesige Vielfalt.</h2>
+        </div>
+        <div class="intro-copy">
+          <p>
+            Wir bringen Studierende und weitere Interessierte aus Zürich
+            zusammen, um unsere Begeisterung für Entomologie zu teilen.
+            Vorkenntnisse sind nicht nötig – Neugier genügt.
+          </p>
+          <p>
+            Gemeinsam organisieren wir Exkursionen, Bestimmungsabende, Vorträge
+            und kleine Projekte rund um Insekten und Biodiversität.
+          </p>
+        </div>
+      </section>
+
+      <!-- НОВОСТИ: копируй одну карточку <article>, чтобы добавить новую -->
+      <section class="section news-section" id="aktuelles">
+        <div class="news-inner">
+          <p class="section-label">Aktuelles</p>
+          <h2>Neuigkeiten aus dem Club</h2>
+
+          <div class="news-grid">
+            <article class="news-card">
+              <div class="news-meta">
+                <span>Verein</span>
+                <time>Juli 2026</time>
+              </div>
+              <h3>Aus unserem Club wird ein Verein</h3>
+              <p>
+                Wir arbeiten derzeit an unseren Statuten und bereiten die
+                Gründungsversammlung vor.
+              </p>
+            </article>
+
+            <article class="news-card">
+              <div class="news-meta">
+                <span>Veranstaltung</span>
+                <time>Demnächst</time>
+              </div>
+              <h3>Nächste gemeinsame Exkursion</h3>
+              <p>
+                Datum und Treffpunkt werden hier veröffentlicht, sobald die
+                Planung abgeschlossen ist.
+              </p>
+            </article>
+
+            <article class="news-card">
+              <div class="news-meta">
+                <span>Projekt</span>
+                <time>In Entwicklung</time>
+              </div>
+              <h3>Etiketten-Generator</h3>
+              <p>
+                Unser kostenloses Werkzeug soll aus Excel-Daten druckfertige
+                entomologische Etiketten erstellen.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!--
+        ФОТОГАЛЕРЕЯ:
+        положи фото в папку images и назови их foto-1.jpg, foto-2.jpg,
+        foto-3.jpg. Они автоматически появятся вместо цветных заглушек.
+      -->
+      <section class="section gallery-section" id="fotos">
+        <div class="gallery-inner">
+          <p class="section-label">Einblicke</p>
+          <h2>Entomologie gemeinsam erleben</h2>
+          <p class="gallery-intro">
+            Hier entsteht unsere Fotogalerie mit Eindrücken von Exkursionen,
+            Bestimmungsabenden und besonderen Funden.
+          </p>
+
+          <div class="gallery-grid">
+            <figure class="gallery-card">
+              <div class="photo-frame">
+                <div class="photo-placeholder" aria-hidden="true">
+                  <span>Foto 1</span>
+                  <small>images/foto-1.jpg</small>
+                </div>
+                <img
+                  src="images/foto-1.jpg"
+                  alt="Gemeinsame Exkursion des Entomologie-Clubs"
+                  loading="lazy"
+                  onerror="this.style.display='none'"
+                />
+              </div>
+              <figcaption>Exkursionen</figcaption>
+            </figure>
+
+            <figure class="gallery-card">
+              <div class="photo-frame">
+                <div class="photo-placeholder" aria-hidden="true">
+                  <span>Foto 2</span>
+                  <small>images/foto-2.jpg</small>
+                </div>
+                <img
+                  src="images/foto-2.jpg"
+                  alt="Insektenbestimmung im Entomologie-Club"
+                  loading="lazy"
+                  onerror="this.style.display='none'"
+                />
+              </div>
+              <figcaption>Bestimmungsabende</figcaption>
+            </figure>
+
+            <figure class="gallery-card">
+              <div class="photo-frame">
+                <div class="photo-placeholder" aria-hidden="true">
+                  <span>Foto 3</span>
+                  <small>images/foto-3.jpg</small>
+                </div>
+                <img
+                  src="images/foto-3.jpg"
+                  alt="Beobachtung eines Insekts"
+                  loading="lazy"
+                  onerror="this.style.display='none'"
+                />
+              </div>
+              <figcaption>Unsere Funde</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section resources" id="projekte">
+        <article class="resource-card resource-tool">
+          <div class="resource-icon" aria-hidden="true">✂</div>
+          <p class="section-label">Kostenloses Werkzeug</p>
+          <h2>Entomologische Etiketten erstellen</h2>
+          <p>
+            Excel-Datei hochladen, Spalten auswählen und druckfertige
+            Etiketten erzeugen. Der Generator befindet sich noch in
+            Entwicklung.
+          </p>
+          <span class="button disabled">Bald verfügbar</span>
+        </article>
+
+        <article class="resource-card resource-docs">
+          <div class="resource-icon" aria-hidden="true">↓</div>
+          <p class="section-label">Dokumente</p>
+          <h2>Statuten des Vereins</h2>
+          <p>
+            Nach unserer Gründungsversammlung können die verabschiedeten
+            Statuten hier als PDF heruntergeladen werden.
+          </p>
+
+          <!--
+            Когда PDF будет готов, положи файл statuten.pdf рядом с index.html
+            и замени следующую строку на:
+            <a class="button button-primary" href="statuten.pdf" download>Statuten herunterladen</a>
+          -->
+          <span class="button disabled">PDF folgt nach der Gründung</span>
+        </article>
+      </section>
+
+      <section class="contact-section" id="kontakt">
+        <p class="section-label">Mitmachen</p>
+        <h2>Du findest Insekten genauso spannend wie wir?</h2>
+        <p>
+          Ob mit viel Erfahrung oder ganz am Anfang: Wir freuen uns, von dir zu
+          hören.
+        </p>
+
+        <!-- ВАЖНО: здесь нужно заменить адрес на настоящий e-mail клуба -->
+        <a
+          class="button button-light"
+          href="mailto:DEINE-EMAIL@BEISPIEL.CH"
+        >
+          E-Mail schreiben
+        </a>
+        <small>Vor der Veröffentlichung eure echte E-Mail-Adresse einsetzen.</small>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <img class="footer-logo" src="images/logo.png" alt="" />
+        <strong>Studentischer Entomologie-Club Zürich</strong>
+      </p>
+      <p>Mit Neugier für die kleinsten Bewohner unserer Welt.</p>
+      <p>© 2026 Studentischer Entomologie-Club Zürich</p>
+    </footer>
+  </body>
+</html>
