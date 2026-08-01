@@ -1,64 +1,44 @@
 BEGIN:VCALENDAR
-VERSION:2.0
-PRODID:-//Studentischer Entomologie-Club Zürich//Prototype//DE
-CALSCALE:GREGORIAN
 METHOD:PUBLISH
+PRODID:Microsoft Exchange Server 2010
+VERSION:2.0
 X-WR-CALNAME:Studentischer Entomologie-Club Zürich
-X-WR-TIMEZONE:Europe/Zurich
+BEGIN:VTIMEZONE
+TZID:W. Europe Standard Time
+BEGIN:STANDARD
+DTSTART:16010101T030000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:16010101T020000
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
+END:DAYLIGHT
+END:VTIMEZONE
 BEGIN:VEVENT
-UID:nachtfalter-20260820@entoclub.example
-DTSTAMP:20260801T210000Z
-DTSTART;TZID=Europe/Zurich:20260820T201500
-DTEND;TZID=Europe/Zurich:20260820T231500
-SUMMARY:Nachtfalter-Exkursion
-LOCATION:Campus Irchel\, Zürich
-DESCRIPTION:TYPE: excursion\nSTATUS: open\nLANGUAGE: DE / EN\nSHORT: Ein Abend mit Nachtfaltern\, Käfern und anderen nächtlichen Besucher:innen.\nIMAGE: assets/event-moth.svg\nREGISTRATION: https://forms.gle/example\n\nWir bauen ein Leuchttuch auf und entdecken\, welche Insekten nach Sonnenuntergang aktiv sind. Anfänger:innen sind herzlich willkommen. Bitte eine kleine Taschenlampe und wetterfeste Kleidung mitbringen.
-URL:https://example.org/events/nachtfalter
-END:VEVENT
-BEGIN:VEVENT
-UID:diptera-20260903@entoclub.example
-DTSTAMP:20260801T210000Z
-DTSTART;TZID=Europe/Zurich:20260903T183000
-DTEND;TZID=Europe/Zurich:20260903T210000
-SUMMARY:Bestimmungsabend: Diptera
-LOCATION:Zoologisches Museum\, Zürich
-DESCRIPTION:TYPE: identification\nSTATUS: open\nLANGUAGE: DE / EN\nSHORT: Lerne häufige Fliegenfamilien unter dem Stereomikroskop zu erkennen.\nIMAGE: assets/event-idnight.svg\n\nBring eigene Exemplare mit oder arbeite mit Material des Clubs. Mikroskope und Bestimmungsliteratur stehen zur Verfügung.
-END:VEVENT
-BEGIN:VEVENT
-UID:bioblitz-20260919@entoclub.example
-DTSTAMP:20260801T210000Z
-DTSTART;TZID=Europe/Zurich:20260919T100000
-DTEND;TZID=Europe/Zurich:20260919T160000
-SUMMARY:Urbaner BioBlitz
-LOCATION:Käferberg\, Zürich
-DESCRIPTION:TYPE: bioblitz\nSTATUS: registration\nLANGUAGE: DE / EN\nSHORT: Ein Tag\, ein Gebiet\, so viele Insektenbeobachtungen wie möglich.\nIMAGE: assets/event-bioblitz.svg\nREGISTRATION: https://forms.gle/example\n\nWir erkunden verschiedene Lebensräume\, fotografieren Beobachtungen und schliessen den Tag mit einer entspannten Bestimmungsrunde ab.
-END:VEVENT
-BEGIN:VEVENT
-UID:wespen-talk-20261007@entoclub.example
-DTSTAMP:20260801T210000Z
-DTSTART;TZID=Europe/Zurich:20261007T183000
-DTEND;TZID=Europe/Zurich:20261007T200000
-SUMMARY:Vortrag: Parasitoide Wespen
-LOCATION:Universität Zürich\, Campus Irchel
-DESCRIPTION:TYPE: talk\nSTATUS: open\nLANGUAGE: EN\nSHORT: Eine zugängliche Einführung in die erstaunliche Vielfalt parasitoider Wespen.\nIMAGE: assets/event-talk.svg\n\nEin kurzer Vortrag mit anschliessender Diskussion\, Präparaten und kleinen Erfrischungen.
-END:VEVENT
-BEGIN:VEVENT
-UID:monthly-id-night@entoclub.example
-DTSTAMP:20260801T210000Z
-DTSTART;TZID=Europe/Zurich:20261015T183000
-DTEND;TZID=Europe/Zurich:20261015T210000
-RRULE:FREQ=MONTHLY;COUNT=4
-SUMMARY:Offener Bestimmungsabend
-LOCATION:Campus Irchel\, Raum wird angekündigt
-DESCRIPTION:TYPE: workshop\nSTATUS: open\nLANGUAGE: DE / EN\nSHORT: Gemeinsam bestimmen\, vergleichen und voneinander lernen.\nIMAGE: assets/event-idnight.svg\n\nDu kannst eigene Funde mitbringen oder mit vorhandenem Sammlungsmaterial arbeiten.
-END:VEVENT
-BEGIN:VEVENT
-UID:past-walk-20260712@entoclub.example
-DTSTAMP:20260801T210000Z
-DTSTART;TZID=Europe/Zurich:20260712T150000
-DTEND;TZID=Europe/Zurich:20260712T180000
-SUMMARY:Sommerlicher Käferspaziergang
-LOCATION:Zürichberg
-DESCRIPTION:TYPE: excursion\nSTATUS: finished\nLANGUAGE: DE\nSHORT: Ein entspannter Spaziergang mit Fokus auf Käfer und ihre Lebensräume.\nIMAGE: assets/event-bioblitz.svg\n\nDieses Event hat bereits stattgefunden.
+UID:040000008200E00074C5B7101A82E00800000000A6F5FD5F0722DD01000000000000000
+ 010000000386D964BAE64714F9C5B3A9F90171B59
+SUMMARY:Busy
+DTSTART;TZID=W. Europe Standard Time:20260809T100000
+DTEND;TZID=W. Europe Standard Time:20260809T103000
+CLASS:PUBLIC
+PRIORITY:5
+DTSTAMP:20260801T224933Z
+TRANSP:OPAQUE
+STATUS:CONFIRMED
+SEQUENCE:0
+X-MICROSOFT-CDO-APPT-SEQUENCE:0
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-CDO-ALLDAYEVENT:FALSE
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INSTTYPE:0
+X-MICROSOFT-DONOTFORWARDMEETING:FALSE
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MICROSOFT-REQUESTEDATTENDANCEMODE:DEFAULT
+X-MICROSOFT-ISRESPONSEREQUESTED:FALSE
 END:VEVENT
 END:VCALENDAR
