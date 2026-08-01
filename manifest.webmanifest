@@ -1,0 +1,9 @@
+{
+  "name": "Studentischer Entomologie-Club Zürich",
+  "short_name": "EntoClub Zürich",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f9fc",
+  "theme_color": "#1238b8",
+  "icons": []
+}

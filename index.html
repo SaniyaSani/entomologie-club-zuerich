@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1238b8" />
+  <meta name="description" content="Exkursionen, Bestimmungsabende und Workshops des Studentischen Entomologie-Clubs Zürich." />
+  <title>Studentischer Entomologie-Club Zürich</title>
+  <link rel="icon" href="assets/club-logo.png" type="image/png" />
+  <link rel="preload" href="assets/hero-poster.jpg" as="image" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="calendar-config.js" defer></script>
+  <script src="calendar/ics-parser.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header" id="top">
+    <div class="header-inner shell">
+      <a class="brand" href="#top" aria-label="Startseite">
+        <img src="assets/club-logo.png" alt="Logo des Studentischen Entomologie-Clubs Zürich" />
+        <span class="brand-copy">
+          <strong>Studentischer</strong>
+          <span><b>Entomologie-Club</b> Zürich</span>
+        </span>
+      </a>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span><span class="sr-only">Navigation öffnen</span>
+      </button>
+
+      <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation">
+        <a href="#events">Events</a>
+        <a href="#about">Über uns</a>
+        <a href="#documents">Verein</a>
+        <a href="#contact">Kontakt</a>
+        <a class="button button-primary nav-join" data-member-link href="#">Mitglied werden</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <video id="hero-video" class="hero-video" autoplay muted loop playsinline poster="assets/hero-poster.jpg" aria-hidden="true">
+        <source src="assets/hero-loop.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content shell">
+        <div class="hero-copy-block">
+          <p class="eyebrow">Exkursionen · Bestimmung · Gemeinschaft</p>
+          <h1 id="hero-title">Entdecke die Welt<br />der Insekten</h1>
+          <p class="hero-copy">Exkursionen, Bestimmungsabende und Workshops für Studierende und Insektenbegeisterte in Zürich.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#events">Events entdecken</a>
+            <a class="button button-ghost" data-member-link href="#">Mitglied werden</a>
+          </div>
+        </div>
+        <button id="video-toggle" class="video-toggle" type="button" aria-label="Video pausieren">
+          <span class="video-toggle-icon" aria-hidden="true">Ⅱ</span>
+        </button>
+      </div>
+      <div class="hero-wave" aria-hidden="true"></div>
+    </section>
+
+    <section class="events-section" id="events" aria-labelledby="events-title">
+      <div class="shell">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow eyebrow-blue">Unser Kalender</p>
+            <h2 id="events-title"><span class="section-icon" aria-hidden="true">▦</span>Kommende Events</h2>
+          </div>
+          <div class="section-actions">
+            <button id="toggle-past" class="text-action" type="button">Vergangene Events</button>
+            <a class="text-action" data-calendar-subscribe href="#">Kalender abonnieren ↗</a>
+          </div>
+        </div>
+
+        <div class="filter-row" aria-label="Event-Typ filtern">
+          <button class="filter-chip is-active" type="button" data-filter="all">Alle</button>
+          <button class="filter-chip" type="button" data-filter="excursion">Exkursionen</button>
+          <button class="filter-chip" type="button" data-filter="identification">Bestimmung</button>
+          <button class="filter-chip" type="button" data-filter="bioblitz">BioBlitz</button>
+          <button class="filter-chip" type="button" data-filter="talk">Vorträge</button>
+          <button class="filter-chip" type="button" data-filter="workshop">Workshops</button>
+        </div>
+
+        <div id="calendar-status" class="calendar-status" role="status" aria-live="polite">
+          <span class="status-dot"></span>
+          <span>Kalender wird geladen …</span>
+        </div>
+
+        <div id="event-list" class="event-list" aria-live="polite"></div>
+        <div id="empty-state" class="empty-state" hidden>
+          <strong>Noch keine Events in dieser Ansicht.</strong>
+          <span>Neue Termine erscheinen hier automatisch aus dem Vereinskalender.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="membership-band" aria-labelledby="membership-title">
+      <div class="shell membership-inner">
+        <div class="membership-art membership-art-left" aria-hidden="true">⌁</div>
+        <div class="membership-icon" aria-hidden="true">◎</div>
+        <div class="membership-copy">
+          <h2 id="membership-title">Mitglied werden</h2>
+          <p>Werde Teil unserer Community und entdecke gemeinsam mit uns die faszinierende Vielfalt der Insekten.</p>
+        </div>
+        <a class="button button-light" data-member-link href="#">Jetzt beitreten</a>
+        <div class="membership-art membership-art-right" aria-hidden="true">✣</div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about" aria-labelledby="about-title">
+      <div class="shell about-grid">
+        <div>
+          <p class="eyebrow eyebrow-blue">Über uns</p>
+          <h2 id="about-title">Entomologie gemeinsam erleben</h2>
+        </div>
+        <p>Wir bringen Studierende, Forschende und Insektenbegeisterte zusammen. Bei Exkursionen, Bestimmungsabenden und Workshops lernen wir voneinander – offen, respektvoll und ohne vorausgesetzte Vorkenntnisse.</p>
+      </div>
+    </section>
+
+    <section class="documents-section" id="documents" aria-labelledby="documents-title">
+      <div class="shell">
+        <h2 id="documents-title"><span class="section-icon" aria-hidden="true">▱</span>Dokumente</h2>
+        <div class="document-grid">
+          <a class="document-card" data-statutes-link href="documents/statuten.pdf">
+            <span class="document-icon" aria-hidden="true">▤</span>
+            <span><strong>Statuten</strong><small>Die Statuten des Studentischen Entomologie-Clubs Zürich.</small></span>
+            <span class="document-arrow" aria-hidden="true">›</span>
+          </a>
+          <a class="document-card" data-code-link href="documents/ehrenkodex.pdf">
+            <span class="document-icon shield" aria-hidden="true">◇</span>
+            <span><strong>Ehrenkodex</strong><small>Unser Ehrenkodex für respektvolles Handeln in der Natur.</small></span>
+            <span class="document-arrow" aria-hidden="true">›</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="shell footer-grid">
+      <div class="footer-club">
+        <img src="assets/club-logo.png" alt="" />
+        <div>
+          <strong data-brand>Studentischer Entomologie-Club Zürich</strong>
+          <span data-address>c/o Universität Zürich</span>
+          <a data-email-link href="mailto:info@example.org">info@example.org</a>
+        </div>
+      </div>
+      <div class="footer-social">
+        <strong>Folge uns</strong>
+        <div class="social-links">
+          <a data-instagram-link href="#" aria-label="Instagram">◎</a>
+          <a data-inaturalist-link href="#" aria-label="iNaturalist">✦</a>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <div><a href="#">Impressum</a><span>·</span><a href="#">Datenschutz</a></div>
+        <span>© <span id="year"></span> <span data-brand>Studentischer Entomologie-Club Zürich</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="event-dialog" class="event-dialog">
+    <button id="dialog-close" class="dialog-close" type="button" aria-label="Event schliessen">×</button>
+    <div id="dialog-content"></div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

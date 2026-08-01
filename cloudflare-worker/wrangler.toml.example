@@ -1,0 +1,6 @@
+name = "entoclub-calendar-proxy"
+main = "worker.js"
+compatibility_date = "2026-08-02"
+
+# Nicht hier den geheimen ICS-Link eintragen.
+# Nach dem Deployment als Secret/Variable CALENDAR_ICS_URL hinterlegen.
