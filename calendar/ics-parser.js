@@ -6,6 +6,40 @@
 (() => {
   const DAY_CODES = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
 
+  // Outlook and Microsoft 365 often export Windows time-zone identifiers.
+  // Browsers expect IANA identifiers such as Europe/Zurich.
+  const WINDOWS_TIME_ZONE_MAP = {
+    "w. europe standard time": "Europe/Zurich",
+    "central europe standard time": "Europe/Budapest",
+    "central european standard time": "Europe/Warsaw",
+    "romance standard time": "Europe/Paris",
+    "gmt standard time": "Europe/London",
+    "greenwich standard time": "Atlantic/Reykjavik",
+    "e. europe standard time": "Europe/Chisinau",
+    "fle standard time": "Europe/Helsinki",
+    "gtb standard time": "Europe/Bucharest",
+    "russian standard time": "Europe/Moscow",
+    "turkey standard time": "Europe/Istanbul",
+    "utc": "UTC"
+  };
+
+  function isSupportedTimeZone(timeZone) {
+    try {
+      new Intl.DateTimeFormat("en", { timeZone }).format();
+      return true;
+    } catch {
+      return false;
+    }
+  }
+
+  function normalizeTimeZone(timeZone, fallback = "Europe/Zurich") {
+    const raw = String(timeZone || "").trim().replace(/^['"]|['"]$/g, "");
+    if (!raw) return fallback;
+    const mapped = WINDOWS_TIME_ZONE_MAP[raw.toLowerCase()] || raw;
+    if (isSupportedTimeZone(mapped)) return mapped;
+    return isSupportedTimeZone(fallback) ? fallback : "UTC";
+  }
+
   function unfold(text) {
     return String(text || "")
       .replace(/\r\n[ \t]/g, "")
@@ -113,7 +147,7 @@
     const components = parseComponents(property.value);
     if (!components) return null;
     const allDay = property.params.VALUE === "DATE" || !String(property.value).includes("T");
-    const timeZone = components.utc ? "UTC" : (property.params.TZID || defaultZone || "Europe/Zurich");
+    const timeZone = components.utc ? "UTC" : normalizeTimeZone(property.params.TZID, normalizeTimeZone(defaultZone, "Europe/Zurich"));
     if (allDay) {
       components.hour = 12;
       components.minute = 0;
