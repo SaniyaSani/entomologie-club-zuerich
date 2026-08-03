@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="de"><head>  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1238b8" />
+  <link rel="icon" href="assets/club-logo.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="calendar-config.js" defer></script>
+  <script src="calendar/ics-parser.js" defer></script>
+  <script src="app.js" defer></script><meta name="description" content="Kommende Events des Studentischen Entomologie-Clubs Zürich." /><title>Events · Studentischer Entomologie-Club Zürich</title></head>
+<body data-page="events"><a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header" id="top">
+  <div class="header-inner shell">
+    <a class="brand" href="index.html" aria-label="Startseite">
+      <img src="assets/club-logo.png" alt="Logo des Studentischen Entomologie-Clubs Zürich" />
+      <span class="brand-copy">
+        <strong>Studentischer</strong>
+        <span><b>Entomologie-Club</b> Zürich</span>
+      </span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span><span class="sr-only">Navigation öffnen</span>
+    </button>
+    <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation">
+      <a data-nav="home" href="index.html">Startseite</a>
+      <a data-nav="events" href="events.html">Events</a>
+      <a data-nav="about" href="ueber-uns.html">Über uns</a>
+      <a data-nav="archive" href="archiv.html">Event-Archiv</a>
+      <a data-nav="club" href="verein.html">Verein</a>
+      <a class="button button-primary nav-join" data-member-only data-member-link href="#">Mitglied werden</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="page-hero"><div class="shell"><p class="eyebrow eyebrow-blue">Unser Kalender</p><h1>Events</h1><p>Alle kommenden Sitzungen, Exkursionen, Vorträge und Workshops auf einen Blick.</p></div></section>
+  <section class="events-section page-events" aria-labelledby="events-title"><div class="shell">
+    <div class="section-header"><div><h2 id="events-title"><span class="section-icon" aria-hidden="true">▦</span>Kommende Events</h2></div><a class="text-action" data-calendar-subscribe href="#">Kalender abonnieren ↗</a></div>
+    <div class="filter-row" aria-label="Event-Typ filtern">
+      <button class="filter-chip is-active" type="button" data-filter="all">Alle</button>
+      <button class="filter-chip" type="button" data-filter="meeting">Sitzungen</button>
+      <button class="filter-chip" type="button" data-filter="excursion">Exkursionen</button>
+      <button class="filter-chip" type="button" data-filter="identification">Bestimmung</button>
+      <button class="filter-chip" type="button" data-filter="bioblitz">BioBlitz</button>
+      <button class="filter-chip" type="button" data-filter="talk">Vorträge</button>
+      <button class="filter-chip" type="button" data-filter="workshop">Workshops</button>
+      <button class="filter-chip" type="button" data-filter="event">Sonstige</button>
+    </div>
+    <div id="calendar-status" class="calendar-status" role="status" aria-live="polite"><span class="status-dot"></span><span>Kalender wird geladen …</span></div>
+    <div id="event-list" class="event-list" aria-live="polite"></div>
+    <div id="empty-state" class="empty-state" hidden><strong>Noch keine Events in dieser Ansicht.</strong><span>Neue Termine erscheinen hier automatisch aus dem Vereinskalender.</span></div>
+  </div></section>
+  <section class="archive-promo section-white"><div class="shell archive-promo-inner"><div><p class="eyebrow eyebrow-blue">Schon vorbei?</p><h2>Frühere Semester entdecken</h2><p>Vergangene Veranstaltungen werden automatisch im Event-Archiv einsortiert.</p></div><a class="button button-primary" href="archiv.html">Zum Event-Archiv</a></div></section>
+</main><footer class="site-footer" id="contact">
+  <div class="shell footer-grid">
+    <div class="footer-club">
+      <img src="assets/club-logo.png" alt="" />
+      <div>
+        <strong data-brand>Studentischer Entomologie-Club Zürich</strong>
+        <span data-address>c/o Universität Zürich</span>
+        <a data-email-link href="mailto:info@example.org">info@example.org</a>
+      </div>
+    </div>
+    <div class="footer-social">
+      <strong>Folge uns</strong>
+      <div class="social-links">
+        <a data-instagram-link href="#" aria-label="Instagram">◎</a>
+        <a data-inaturalist-link href="#" aria-label="iNaturalist">✦</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <div><a href="verein.html#impressum">Impressum</a><span>·</span><a href="verein.html#datenschutz">Datenschutz</a></div>
+      <span>© <span id="year"></span> <span data-brand>Studentischer Entomologie-Club Zürich</span></span>
+    </div>
+  </div>
+</footer>
+<div id="toast" class="toast" role="status" aria-live="polite"></div><dialog id="event-dialog" class="event-dialog">
+  <button id="dialog-close" class="dialog-close" type="button" aria-label="Event schliessen">×</button>
+  <div id="dialog-content"></div>
+</dialog></body></html>

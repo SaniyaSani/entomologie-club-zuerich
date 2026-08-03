@@ -1,0 +1,26 @@
+TYPE: excursion
+REGISTRATION_REQUIRED: yes
+REGISTRATION_URL: https://forms.gle/...
+COST: free
+AUDIENCE: all
+SHORT: Eine kurze Beschreibung für die Event-Liste.
+IMAGE: https://öffentliche-bildadresse.example/bild.jpg
+SEMESTER: HS 2026
+LANGUAGE: DE / EN
+
+Hier beginnt die ausführliche Beschreibung des Events.
+Datum, Uhrzeit und Treffpunkt werden NICHT wiederholt, sondern direkt in den normalen Google-Calendar-Feldern eingetragen.
+
+Mögliche TYPE-Werte:
+meeting | excursion | identification | bioblitz | talk | workshop | social | event
+
+REGISTRATION_REQUIRED:
+yes | no
+
+COST:
+free | variable | CHF 10 | jeder andere Text
+
+AUDIENCE:
+all | members
+
+SEMESTER ist optional. Ohne diese Zeile ordnet die Website das Event automatisch FS/HS zu.

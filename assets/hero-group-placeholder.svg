@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="Platzhalter für ein Gruppenfoto des Clubs">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071d39"/>
+      <stop offset="0.5" stop-color="#0b6f88"/>
+      <stop offset="1" stop-color="#1238b8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="35%" r="60%">
+      <stop offset="0" stop-color="#5ad6d2" stop-opacity=".75"/>
+      <stop offset="1" stop-color="#5ad6d2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#g)"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+  <g opacity=".18" stroke="#fff" fill="none" stroke-width="8">
+    <circle cx="1500" cy="250" r="170"/><circle cx="1700" cy="500" r="260"/><circle cx="1300" cy="760" r="320"/>
+  </g>
+  <g transform="translate(1080 280)" fill="#eafcff" opacity=".92">
+    <circle cx="0" cy="0" r="90"/><path d="M-165 390c10-180 72-285 165-285s155 105 165 285z"/>
+    <circle cx="310" cy="45" r="78"/><path d="M175 390c12-155 61-252 135-252s123 97 135 252z"/>
+    <circle cx="-300" cy="55" r="76"/><path d="M-430 390c10-150 58-245 130-245s120 95 130 245z"/>
+    <circle cx="570" cy="120" r="62"/><path d="M465 390c8-124 46-204 105-204s97 80 105 204z"/>
+  </g>
+  <g transform="translate(1180 760)" stroke="#66d2cf" fill="none" stroke-width="10" stroke-linecap="round">
+    <ellipse cx="0" cy="0" rx="64" ry="105"/><path d="M0-105v210M-50-45l-120-90M50-45l120-90M-62 5l-150 0M62 5l150 0M-50 55l-115 120M50 55l115 120"/>
+  </g>
+</svg>

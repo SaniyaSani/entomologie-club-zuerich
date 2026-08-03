@@ -1,260 +1,104 @@
-# Studentischer Entomologie-Club Zürich — прототип сайта
+# Studentischer Entomologie-Club Zürich — версия по фидбеку Samuel
 
-Это рабочий статический прототип в сине-бирюзовом стиле клубного логотипа.
+## Что изменено
 
-Главная особенность: сайт не привязан к Google Calendar. Он читает стандартный **ICS-календарь**, поэтому источником может быть:
+- отдельные страницы: Startseite, Events, Über uns, Event-Archiv, Verein;
+- на странице Events только будущие события, toggle прошлых удалён;
+- прошедшие события автоматически появляются в архиве и группируются по FS/HS;
+- Vorstand загружается из `data/team.json`;
+- кнопка Mitglied werden сейчас скрыта через `showMembership: false`;
+- hero по умолчанию использует изображение, но видео можно вернуть одной настройкой;
+- слово `Studentischer` сохраняется в мобильной шапке;
+- добавлены поля Anmeldung, Kosten, Zielgruppe, Bild, Kurzbeschreibung;
+- все времена отображаются в `Europe/Zurich`, в том числе UTC-события Google Calendar.
 
-- Google Calendar;
-- Outlook / Microsoft 365;
-- Nextcloud Calendar;
-- Apple Calendar;
-- любой другой календарь, который умеет публиковать ICS-feed.
-
-Коллега редактирует только обычный календарь. Карточки событий на сайте обновляются автоматически.
-
-## 1. Как попробовать сайт сейчас
-
-### Mac
-
-Дважды нажми на:
-
-```text
-START_MAC.command
-```
-
-Если macOS не разрешает запуск, открой Terminal в папке проекта и выполни:
+## Быстрый запуск
 
 ```bash
 python3 -m http.server 8080
 ```
 
-После этого открой:
+Открыть `http://localhost:8080`.
 
-```text
-http://localhost:8080
-```
+## Подключение Google Calendar
 
-### Windows
+1. Создайте отдельный календарь клуба.
+2. В `Settings and sharing` включите публичный доступ с полными деталями событий.
+3. В `Integrate calendar` скопируйте `Public address in iCal format`.
+4. В GitHub: `Settings → Secrets and variables → Actions → ICS_URL`.
+5. Вставьте новую ICS-ссылку.
+6. Запустите `Actions → Kalender synchronisieren → Run workflow`.
 
-Запусти:
+Сайт читает `data/calendar.ics`; workflow автоматически заменяет этот файл содержимым Google Calendar.
 
-```text
-START_WINDOWS.bat
-```
+## Как оформлять событие
 
-Сейчас сайт читает демонстрационный файл:
-
-```text
-data/calendar.ics
-```
-
-## 2. Рекомендуемое подключение: ICS + GitHub Actions
-
-Это самый универсальный вариант. Он не требует API-ключа Google или Microsoft и не привязывает сайт к одной корпорации.
-
-Схема:
-
-```text
-Google / Outlook / Nextcloud
-            ↓ ICS
-      GitHub Action
-            ↓
-    data/calendar.ics
-            ↓
-           сайт
-```
-
-GitHub Action уже лежит здесь:
-
-```text
-.github/workflows/sync-calendar.yml
-```
-
-Он проверяет календарь дважды в час и обновляет `data/calendar.ics`. Его также можно запустить вручную через вкладку Actions.
-
-### Шаги
-
-1. Создай отдельный календарь только для публичных мероприятий клуба.
-2. Получи его ICS-ссылку.
-3. Загрузи проект в GitHub-репозиторий.
-4. В репозитории открой:
-
-```text
-Settings → Secrets and variables → Actions
-```
-
-5. Создай новый Repository Secret:
-
-```text
-Name: ICS_URL
-Value: полная ICS-ссылка календаря
-```
-
-6. Открой вкладку `Actions`.
-7. Выбери workflow `Kalender synchronisieren`.
-8. Нажми `Run workflow`.
-9. Проверь, что файл `data/calendar.ics` обновился.
-
-После этого коллега добавляет и редактирует события только в календаре.
-
-## 3. Где взять ICS-ссылку
-
-### Google Calendar
-
-Создай отдельный клубный календарь. В его настройках открой раздел интеграции календаря и скопируй **Public address in iCal format**. Публичный iCal-адрес работает только для публичного календаря.
-
-Можно также использовать секретный iCal-адрес как GitHub Secret, но содержимое событий всё равно будет опубликовано на сайте. Поэтому лучше использовать отдельный календарь без приватных данных.
-
-### Outlook / Microsoft 365
-
-В Outlook on the web открой настройки календаря, затем раздел общих календарей. В блоке публикации календаря выбери календарь и уровень видимых подробностей, нажми Publish и скопируй появившуюся ICS-ссылку.
-
-### Что выбрать
-
-Технически для сайта разницы почти нет: оба варианта превращаются в ICS.
-
-- Google удобнее, если ты уже хорошо его знаешь.
-- Outlook логичнее, если клуб уже полностью работает в Microsoft 365.
-- Переехать с одного на другой можно без переделки сайта: достаточно заменить Secret `ICS_URL`.
-
-## 4. Как оформить событие
-
-Обычные поля календаря используются напрямую:
-
-- название → название события;
-- дата и время → дата и время;
-- location → место;
-- description → короткий и полный текст;
-- URL → ссылка события;
-- повторяющиеся события → повторения в календаре.
-
-В начале Description можно добавить специальные строки:
+Название, дата, время и location заполняются обычными полями Google Calendar. В description вставляется шаблон из `EVENT_BESCHREIBUNG_VORLAGE.txt`.
 
 ```text
 TYPE: excursion
-STATUS: open
-LANGUAGE: DE / EN
-SHORT: Ein Abend mit Nachtfaltern und anderen nächtlichen Insekten.
-IMAGE: https://example.org/images/nachtfalter.jpg
-REGISTRATION: https://forms.example.org/anmeldung
-
-Hier beginnt die ausführliche Beschreibung des Events.
-Sie kann mehrere Absätze enthalten.
-```
-
-Пустая строка отделяет настройки от полного описания.
-
-### Поддерживаемые TYPE
-
-```text
-excursion
-identification
-bioblitz
-workshop
-talk
-social
-```
-
-### Поддерживаемые STATUS
-
-```text
-open
-registration
-full
-members
-finished
-```
-
-## 5. Как добавлять картинки к событиям
-
-Для универсальной интеграции самый надёжный способ — строка:
-
-```text
+REGISTRATION_REQUIRED: yes
+REGISTRATION_URL: https://forms.gle/...
+COST: free
+AUDIENCE: all
+SHORT: Короткое описание.
 IMAGE: https://публичная-ссылка-на-картинку.jpg
+SEMESTER: HS 2026
+LANGUAGE: DE / EN
+
+Полное описание события.
 ```
 
-Изображение должно открываться без входа в аккаунт.
+`SEMESTER` необязателен: сайт определяет FS/HS автоматически.
 
-Прототип также пытается читать стандартное ICS-поле `ATTACH`, если календарь экспортирует вложения. Но разные календарные сервисы передают вложения по-разному, поэтому `IMAGE:` надёжнее.
+## Как поменять групповое фото
 
-Если картинки нет, сайт автоматически показывает стандартную обложку по `TYPE`.
-
-## 6. Как заменить видео в баннере
-
-В папке `assets` находятся:
-
-```text
-hero-loop.mp4
-hero-poster.jpg
-```
-
-Замени их своими файлами, сохранив те же имена.
-
-Рекомендуемые параметры видео:
-
-```text
-1920 × 1080 px
-16:9
-MP4 / H.264
-25 или 30 fps
-8–15 секунд
-без звука
-желательно до 8–12 MB
-```
-
-Главный объект лучше держать в центре или немного правее, потому что слева расположен текст. Для телефона важные детали должны оставаться в центральных 40–50% кадра.
-
-`hero-poster.jpg` — статичная картинка, которая показывается до загрузки видео. Желательный размер: `1920 × 1080 px`.
-
-## 7. Что менять в calendar-config.js
-
-Основные ссылки клуба находятся в:
-
-```text
-calendar-config.js
-```
-
-Там можно заменить:
-
-- форму вступления;
-- ссылку для подписки на календарь;
-- email;
-- адрес;
-- Instagram;
-- iNaturalist;
-- Statuten;
-- Ehrenkodex.
-
-## 8. Альтернатива без GitHub Actions: Cloudflare Worker
-
-В папке:
-
-```text
-cloudflare-worker/
-```
-
-лежит простой proxy. Он получает ICS-feed и отдаёт его сайту с разрешённым CORS.
-
-После публикации Worker:
-
-1. сохрани ICS-ссылку в переменной/секрете `CALENDAR_ICS_URL`;
-2. в `calendar-config.js` поставь:
+Положите фотографию, например, в `assets/hero-group.jpg`, затем в `calendar-config.js`:
 
 ```js
-mode: "proxy",
-proxyUrl: "https://ТВОЙ-WORKER.workers.dev/calendar.ics",
+hero: {
+  mode: "image",
+  imageUrl: "assets/hero-group.jpg",
+  imagePosition: "center center"
+}
 ```
 
-Для первой рабочей версии я рекомендую GitHub Actions: меньше инфраструктуры и календарный адрес не хранится в браузерном коде.
+Для видео:
 
-## 9. Важное о приватности
+```js
+mode: "video"
+```
 
-Не помещай в календарь сайта:
+и замените `assets/hero-loop.mp4` и `assets/hero-poster.jpg`.
 
-- списки участников;
-- личные телефоны;
-- приватные Zoom-ссылки;
-- внутренние заметки;
-- адреса, которые не должны видеть посетители.
+## Как редактировать Vorstand
 
-Даже если ICS-ссылка хранится как secret, сами события после синхронизации становятся публичными на сайте.
+Откройте `data/team.json`. Для каждого человека доступны:
+
+- `name`
+- `role`
+- `study`
+- `favouriteInsect`
+- `portrait`
+- `contact` (необязательно)
+
+Портреты удобно класть в `assets/team/`.
+
+## Как вернуть Mitglied werden
+
+В `calendar-config.js`:
+
+```js
+showMembership: true,
+membershipUrl: "https://..."
+```
+
+## Что нужно заменить перед публикацией
+
+- email и адрес;
+- социальные ссылки;
+- Google Calendar subscription link;
+- портреты и данные Vorstand;
+- групповое фото;
+- официальные Statuten и Ehrenkodex (сейчас открываются страницы-заглушки);
+- Impressum и Datenschutz после проверки официальных данных.

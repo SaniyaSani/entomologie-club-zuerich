@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Saniya",
+    "role": "Präsidium",
+    "study": "BSc Biodiversität",
+    "favouriteInsect": "Bitte ergänzen",
+    "portrait": "assets/team/saniya.svg",
+    "contact": ""
+  },
+  {
+    "name": "Samuel",
+    "role": "Social Media",
+    "study": "Studiengang ergänzen",
+    "favouriteInsect": "Bitte ergänzen",
+    "portrait": "assets/team/samuel.svg",
+    "contact": ""
+  },
+  {
+    "name": "Raphi",
+    "role": "Protokoll",
+    "study": "Studiengang ergänzen",
+    "favouriteInsect": "Bitte ergänzen",
+    "portrait": "assets/team/raphi.svg",
+    "contact": ""
+  },
+  {
+    "name": "Manuel",
+    "role": "Kasse",
+    "study": "Studiengang ergänzen",
+    "favouriteInsect": "Bitte ergänzen",
+    "portrait": "assets/team/manuel.svg",
+    "contact": ""
+  }
+]

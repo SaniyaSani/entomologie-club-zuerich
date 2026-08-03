@@ -1,48 +1,25 @@
-# Website-Prototyp: Studentischer Entomologie-Club Zürich
+# Website des Studentischen Entomologie-Clubs Zürich
 
-Die Website liest einen normalen ICS-Kalender. Dadurch kann der Kalender später aus Google Calendar, Outlook, Nextcloud oder einem anderen kompatiblen Dienst stammen.
+Die Website ist statisch und verwendet einen universellen ICS-Kalender als Event-CMS. Google Calendar, Outlook oder Nextcloud können als Quelle dienen; empfohlen ist derzeit Google Calendar.
 
-## Lokal starten
+## Inhalte bearbeiten
+
+- allgemeine Einstellungen: `calendar-config.js`
+- Vorstand: `data/team.json`
+- Event-Vorlage: `EVENT_BESCHREIBUNG_VORLAGE.txt`
+- Gruppenbild: `assets/hero-group.jpg`
+- Dokumente: `documents/statuten.pdf` und `documents/ehrenkodex.pdf`
+
+## Seiten
+
+- `index.html` — Startseite
+- `events.html` — kommende Events
+- `ueber-uns.html` — Verein und Vorstand
+- `archiv.html` — vergangene Events nach Semester
+- `verein.html` — Dokumente, Kontakt, Impressum und Datenschutz
+
+## Lokaler Start
 
 ```bash
 python3 -m http.server 8080
 ```
-
-Danach im Browser öffnen:
-
-```text
-http://localhost:8080
-```
-
-## Empfohlener Betrieb
-
-1. Einen separaten Kalender für öffentliche Club-Events anlegen.
-2. Den ICS-Link als GitHub Repository Secret `ICS_URL` speichern.
-3. Den vorhandenen Workflow `.github/workflows/sync-calendar.yml` manuell starten.
-4. Danach aktualisiert der Workflow `data/calendar.ics` automatisch.
-
-## Event-Metadaten
-
-Am Anfang der Kalenderbeschreibung können optionale Zeilen stehen:
-
-```text
-TYPE: excursion
-STATUS: open
-LANGUAGE: DE / EN
-SHORT: Kurzer Text für die Event-Liste.
-IMAGE: https://example.org/eventbild.jpg
-REGISTRATION: https://example.org/anmeldung
-
-Hier beginnt die ausführliche Eventbeschreibung.
-```
-
-## Banner-Video
-
-Ersetze:
-
-```text
-assets/hero-loop.mp4
-assets/hero-poster.jpg
-```
-
-Empfehlung: MP4/H.264, 1920×1080, 8–15 Sekunden, ohne Ton.

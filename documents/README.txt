@@ -1,5 +1,5 @@
-Lege hier die offiziellen PDFs ab:
+Hier die offiziellen Dateien ablegen:
 - statuten.pdf
 - ehrenkodex.pdf
 
-Oder ändere die Links in calendar-config.js.
+Die Links sind bereits in calendar-config.js vorbereitet.

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="de"><head>  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1238b8" />
+  <link rel="icon" href="assets/club-logo.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="calendar-config.js" defer></script>
+  <script src="calendar/ics-parser.js" defer></script>
+  <script src="app.js" defer></script><meta name="description" content="Über den Studentischen Entomologie-Club Zürich und seinen Vorstand." /><title>Über uns · Studentischer Entomologie-Club Zürich</title></head>
+<body data-page="about"><a class="skip-link" href="#main">Zum Inhalt springen</a>
+<header class="site-header" id="top">
+  <div class="header-inner shell">
+    <a class="brand" href="index.html" aria-label="Startseite">
+      <img src="assets/club-logo.png" alt="Logo des Studentischen Entomologie-Clubs Zürich" />
+      <span class="brand-copy">
+        <strong>Studentischer</strong>
+        <span><b>Entomologie-Club</b> Zürich</span>
+      </span>
+    </a>
+    <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav">
+      <span></span><span></span><span></span><span class="sr-only">Navigation öffnen</span>
+    </button>
+    <nav id="main-nav" class="main-nav" aria-label="Hauptnavigation">
+      <a data-nav="home" href="index.html">Startseite</a>
+      <a data-nav="events" href="events.html">Events</a>
+      <a data-nav="about" href="ueber-uns.html">Über uns</a>
+      <a data-nav="archive" href="archiv.html">Event-Archiv</a>
+      <a data-nav="club" href="verein.html">Verein</a>
+      <a class="button button-primary nav-join" data-member-only data-member-link href="#">Mitglied werden</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="page-hero page-hero-about"><div class="shell"><p class="eyebrow eyebrow-blue">Über uns</p><h1>Gemeinsam für die kleinen Dinge</h1><p data-about-intro></p></div></section>
+  <section class="values-section section-white"><div class="shell values-grid">
+    <article><span>01</span><h2>Offen</h2><p>Willkommen sind Studierende und Interessierte mit und ohne Vorkenntnisse.</p></article>
+    <article><span>02</span><h2>Neugierig</h2><p>Wir lernen voneinander und nehmen uns Zeit für Beobachtung und Bestimmung.</p></article>
+    <article><span>03</span><h2>Verantwortungsvoll</h2><p>Wir achten Arten, Lebensräume und einen respektvollen Umgang miteinander.</p></article>
+  </div></section>
+  <section class="team-section"><div class="shell"><div class="section-header"><div><p class="eyebrow eyebrow-blue">Vorstand</p><h2>Die Menschen hinter dem Club</h2></div></div><div id="team-grid" class="team-grid"></div><div id="team-empty" class="empty-state" hidden>Vorstandsprofile werden bald ergänzt.</div></div></section>
+  <section class="documents-teaser section-white"><div class="shell archive-promo-inner"><div><p class="eyebrow eyebrow-blue">Unser Verein</p><h2>Statuten und Ehrenkodex</h2><p>Wie wir organisiert sind und welche Werte unsere Veranstaltungen tragen.</p></div><a class="button button-primary" href="verein.html">Vereinsinformationen</a></div></section>
+</main><footer class="site-footer" id="contact">
+  <div class="shell footer-grid">
+    <div class="footer-club">
+      <img src="assets/club-logo.png" alt="" />
+      <div>
+        <strong data-brand>Studentischer Entomologie-Club Zürich</strong>
+        <span data-address>c/o Universität Zürich</span>
+        <a data-email-link href="mailto:info@example.org">info@example.org</a>
+      </div>
+    </div>
+    <div class="footer-social">
+      <strong>Folge uns</strong>
+      <div class="social-links">
+        <a data-instagram-link href="#" aria-label="Instagram">◎</a>
+        <a data-inaturalist-link href="#" aria-label="iNaturalist">✦</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <div><a href="verein.html#impressum">Impressum</a><span>·</span><a href="verein.html#datenschutz">Datenschutz</a></div>
+      <span>© <span id="year"></span> <span data-brand>Studentischer Entomologie-Club Zürich</span></span>
+    </div>
+  </div>
+</footer>
+<div id="toast" class="toast" role="status" aria-live="polite"></div></body></html>
