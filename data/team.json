@@ -1,6 +1,6 @@
 [
   {
-    "name": "Saniya",
+    "name": "Sanny",
     "role": "Präsidium",
     "study": "BSc Biodiversität",
     "favouriteInsect": "Bitte ergänzen",
@@ -9,7 +9,7 @@
   },
   {
     "name": "Samuel",
-    "role": "Social Media",
+    "role": "Social Media Person",
     "study": "Studiengang ergänzen",
     "favouriteInsect": "Bitte ergänzen",
     "portrait": "assets/team/samuel.svg",
@@ -24,8 +24,16 @@
     "contact": ""
   },
   {
-    "name": "Manuel",
-    "role": "Kasse",
+    "name": "Almedina",
+    "role": "Photography",
+    "study": "Studiengang ergänzen",
+    "favouriteInsect": "Bitte ergänzen",
+    "portrait": "assets/team/manuel.svg",
+    "contact": ""
+  },
+  {
+    "name": "Kim",
+    "role": "Photography",
     "study": "Studiengang ergänzen",
     "favouriteInsect": "Bitte ergänzen",
     "portrait": "assets/team/manuel.svg",
