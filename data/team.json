@@ -17,7 +17,7 @@
   },
   {
     "name": "Raphi",
-    "role": "Protokoll",
+    "role": "Finanzen",
     "study": "Studiengang ergänzen",
     "favouriteInsect": "kommt noch",
     "portrait": "assets/team/raphi.svg",
@@ -32,8 +32,16 @@
     "contact": ""
   },
   {
+    "name": "Cyrill",
+    "role": "Protokoll",
+    "study": "BSc Biodiversität",
+    "favouriteInsect": "kommt noch",
+    "portrait": "assets/team/manuel.svg",
+    "contact": ""
+  }
+  {
     "name": "Kim",
-    "role": "Photography",
+    "role": "Wohlfühlbeauftragte",
     "study": "BSc Biodiversität",
     "favouriteInsect": "kommt noch",
     "portrait": "assets/team/manuel.svg",
