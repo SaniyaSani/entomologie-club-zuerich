@@ -161,8 +161,9 @@ button, input { font: inherit; }
 .document-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
 .document-card { display: grid; grid-template-columns: 64px 1fr auto; align-items: center; gap: 18px; min-height: 120px; padding: 22px; border: 1px solid var(--line); border-radius: 13px; background: #fff; text-decoration: none; transition: transform .18s ease, box-shadow .18s ease; }
 .document-card:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(22,44,91,.09); }
-.document-icon { width: 58px; height: 58px; display: grid; place-items: center; color: var(--teal); border: 2px solid currentColor; border-radius: 12px; font-size: 1.7rem; }
-.document-icon.shield { border-radius: 50%; }
+.document-icon { width: 58px; height: 58px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: none; font-size: 1.7rem; }
+.document-icon img { width: auto; height: 58px; max-width: 58px; object-fit: contain; display: block; }
+.document-icon.shield { border-radius: 0; }
 .document-card strong, .document-card small { display: block; }
 .document-card small { margin-top: 5px; color: var(--muted); }
 .document-arrow { color: var(--blue); font-size: 2rem; }
