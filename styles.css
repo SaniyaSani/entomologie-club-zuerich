@@ -102,7 +102,7 @@ button, input { font: inherit; }
 .event-type { display: inline-flex; align-items: center; min-height: 24px; padding: 3px 8px; color: var(--blue); background: var(--blue-soft); border-radius: 999px; font-size: .67rem; font-weight: 850; text-transform: uppercase; letter-spacing: .05em; }
 .event-meta { display: flex; flex-wrap: wrap; gap: 7px 20px; margin-top: 8px; color: #3e485d; font-size: .86rem; font-weight: 650; }
 .event-meta span { display: inline-flex; align-items: center; gap: 6px; }
-.event-meta b { color: #788398; font-size: .92rem; }
+.event-meta-icon { height: 1em; width: auto; vertical-align: -0.15em; }
 .event-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
 .info-badge { display: inline-flex; align-items: center; min-height: 25px; padding: 3px 9px; border-radius: 999px; color: #3f4b61; background: #f0f3f8; font-size: .72rem; font-weight: 750; }
 .info-badge.is-important { color: #075e68; background: #daf5f2; }
