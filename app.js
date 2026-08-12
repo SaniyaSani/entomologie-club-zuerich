@@ -229,7 +229,20 @@
       <div class="event-thumbnail"><img src="${escapeHtml(event.image)}" alt="" loading="lazy" onerror="this.src='${escapeHtml(fallback)}'" /></div>
       <div class="event-main">
         <div class="event-title-line"><h3>${escapeHtml(event.title)}</h3><span class="event-type">${escapeHtml(typeLabel)}</span></div>
-        <div class="event-meta"><span><b aria-hidden="true">□</b>${escapeHtml(formatDate(event))}</span><span><b aria-hidden="true">◷</b>${escapeHtml(formatTime(event))}</span><span><b aria-hidden="true">⌖</b>${escapeHtml(event.location)}</span></div>
+        <div class="event-meta">
+        <span>
+          <img class="event-meta-icon" src="assets/icons/calendar_gray.svg" alt="" aria-hidden="true">
+          ${escapeHtml(formatDate(event))}
+        </span>
+        <span>
+          <img class="event-meta-icon" src="assets/icons/clock.svg" alt="" aria-hidden="true">
+          ${escapeHtml(formatTime(event))}
+        </span>
+        <span>
+          <img class="event-meta-icon" src="assets/icons/location.svg" alt="" aria-hidden="true">
+          ${escapeHtml(event.location)}
+        </span>
+        </div>
         <div class="event-badges"><span class="info-badge ${event.registrationRequired ? "is-important" : ""}">${escapeHtml(registrationLabel)}</span><span class="info-badge">${escapeHtml(event.cost)}</span><span class="info-badge">${escapeHtml(event.audience)}</span></div>
         <p>${escapeHtml(event.short)}</p>
       </div>
