@@ -39,7 +39,7 @@ window.ENTO_SITE_CONFIG = {
   },
 
   content: {
-    homeIntro: "Wir verbinden Studierende, Forschende und Insektenbegeisterte in Zürich. Gemeinsam entdecken, bestimmen und dokumentieren wir die faszinierende Vielfalt der Insekten.",
+    homeIntro: "Wir verbinden Studierende, Forschende und Insektenbegeisterte in Zürich. Gemeinsam entdecken, bestimmen und dokumentieren wir die faszinierende Vielfalt der Insekten. Keine Vorkentnisse nötig, Anfänger willkommen!",
     aboutIntro: "Der Studentische Entomologie-Club Zürich ist eine offene Gemeinschaft für alle, die Insekten kennenlernen, bestimmen oder erforschen möchten. Vorkenntnisse sind nicht nötig, Neugier reicht völlig aus."
   },
 
