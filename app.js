@@ -17,6 +17,13 @@
     open: "Offen", registration: "Anmeldung erforderlich", full: "Ausgebucht",
     members: "Nur für Mitglieder", finished: "Beendet"
   };
+  const DEFAULT_HONORARY_MEMBERS = [
+    {
+      firstName: "Oliver",
+      lastName: "Hawlitschek",
+      portrait: "assets/club-logo-maskottchen.png"
+    }
+  ];
 
   function escapeHtml(value = "") {
     return String(value).replace(/[&<>'"]/g, character => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#039;",'"':"&quot;"}[character]));
@@ -319,7 +326,7 @@
     const contactUrl = safeUrl(person.contact || "");
     const contact = contactUrl ? `<a class="team-contact" href="${escapeHtml(contactUrl)}">Kontakt →</a>` : "";
     return `<article class="team-card${type === "honorary" ? " team-card-honorary" : ""}">
-      <div class="team-portrait"><img src="${escapeHtml(person.portrait || "assets/team/placeholder.svg")}" alt="Porträt von ${escapeHtml(name)}" loading="lazy" /></div>
+      <div class="team-portrait"><img src="${escapeHtml(person.portrait || "assets/club-logo-maskottchen.png")}" alt="Porträt von ${escapeHtml(name)}" loading="lazy" onerror="this.onerror=null;this.src='assets/club-logo-maskottchen.png'" /></div>
       <div class="team-copy">${role}<div class="team-name-line"><h3>${escapeHtml(name)}</h3>${pronouns}</div>${facts ? `<dl class="team-facts">${facts}</dl>` : ""}${contact}</div>
     </article>`;
   }
@@ -335,11 +342,15 @@
   async function loadTeam() {
     if (!$('#board-grid') && !$('#honorary-grid')) return;
     try {
-      const response = await fetch(config.team?.dataUrl || "data/team.json", { cache:"no-store" });
+      const dataUrl = config.team?.dataUrl || "data/team.json";
+      const cacheBustedUrl = `${dataUrl}${dataUrl.includes("?") ? "&" : "?"}_=${Date.now()}`;
+      const response = await fetch(cacheBustedUrl, { cache:"no-store" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
       const board = Array.isArray(data) ? data : data.board || [];
-      const honoraryMembers = Array.isArray(data) ? [] : data.honoraryMembers || [];
+      const honoraryMembers = !Array.isArray(data) && Array.isArray(data.honoraryMembers) && data.honoraryMembers.length
+        ? data.honoraryMembers
+        : DEFAULT_HONORARY_MEMBERS;
       renderPeople('#board-grid', '#board-empty', board, 'board');
       renderPeople('#honorary-grid', '#honorary-empty', honoraryMembers, 'honorary');
     } catch (error) {
