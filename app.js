@@ -57,6 +57,34 @@
     const year = $('#year'); if (year) year.textContent = new Date().getFullYear();
     const active = $(`[data-nav="${page}"]`); if (active) active.classList.add("is-active");
     configureHero();
+    configureDonations();
+  }
+
+  function configureDonations() {
+    const donations = config.donations || {};
+    const section = $('[data-donations-section]');
+    if (!section) return;
+    section.hidden = donations.show === false;
+
+    const iban = String(donations.iban || "").trim();
+    const accountHolder = String(donations.accountHolder || "").trim();
+    const bankDetails = $('[data-bank-details]', section);
+    const bankPlaceholder = $('[data-bank-placeholder]', section);
+    if (bankDetails) bankDetails.hidden = !iban;
+    if (bankPlaceholder) bankPlaceholder.hidden = Boolean(iban);
+    const ibanElement = $('[data-donation-iban]', section);
+    const holderElement = $('[data-donation-holder]', section);
+    if (ibanElement) ibanElement.textContent = iban;
+    if (holderElement) {
+      holderElement.textContent = accountHolder;
+      holderElement.parentElement.hidden = !accountHolder;
+    }
+
+    const qrImageUrl = safeUrl(donations.qrImageUrl || "");
+    const qrContainer = $('[data-donation-qr]', section);
+    const qrImage = $('img', qrContainer || section);
+    if (qrContainer) qrContainer.hidden = !qrImageUrl;
+    if (qrImage && qrImageUrl) qrImage.src = qrImageUrl;
   }
 
   function configureHero() {
@@ -275,15 +303,50 @@
   }
   function openEventFromUrl() { const id = new URLSearchParams(location.search).get("event"); if (id) openEvent(id); }
 
+  function personName(person) {
+    const structuredName = [person.firstName, person.lastName].filter(Boolean).join(" ").trim();
+    return structuredName || person.name || "Name";
+  }
+
+  function personCardTemplate(person, type) {
+    const name = personName(person);
+    const pronouns = person.pronouns ? `<span class="team-pronouns">${escapeHtml(person.pronouns)}</span>` : "";
+    const role = type === "board" && person.role ? `<span class="team-role">${escapeHtml(person.role)}</span>` : "";
+    const facts = [
+      type === "board" && person.study ? `<div><dt>Studiengang</dt><dd>${escapeHtml(person.study)}</dd></div>` : "",
+      person.favouriteInsect ? `<div><dt>Lieblingsinsekt</dt><dd><i>${escapeHtml(person.favouriteInsect)}</i></dd></div>` : ""
+    ].join("");
+    const contactUrl = safeUrl(person.contact || "");
+    const contact = contactUrl ? `<a class="team-contact" href="${escapeHtml(contactUrl)}">Kontakt →</a>` : "";
+    return `<article class="team-card${type === "honorary" ? " team-card-honorary" : ""}">
+      <div class="team-portrait"><img src="${escapeHtml(person.portrait || "assets/team/placeholder.svg")}" alt="Porträt von ${escapeHtml(name)}" loading="lazy" /></div>
+      <div class="team-copy">${role}<div class="team-name-line"><h3>${escapeHtml(name)}</h3>${pronouns}</div>${facts ? `<dl class="team-facts">${facts}</dl>` : ""}${contact}</div>
+    </article>`;
+  }
+
+  function renderPeople(gridSelector, emptySelector, people, type) {
+    const grid = $(gridSelector);
+    const empty = $(emptySelector);
+    if (!grid || !empty) return;
+    grid.innerHTML = people.map(person => personCardTemplate(person, type)).join("");
+    empty.hidden = people.length > 0;
+  }
+
   async function loadTeam() {
-    const grid = $('#team-grid'); if (!grid) return;
+    if (!$('#board-grid') && !$('#honorary-grid')) return;
     try {
       const response = await fetch(config.team?.dataUrl || "data/team.json", { cache:"no-store" });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const team = await response.json();
-      grid.innerHTML = team.map(member => `<article class="team-card"><div class="team-portrait"><img src="${escapeHtml(member.portrait || "assets/team/saniya.svg")}" alt="Porträt von ${escapeHtml(member.name)}" /></div><div class="team-copy"><span class="team-role">${escapeHtml(member.role || "Vorstand")}</span><h3>${escapeHtml(member.name || "Name")}</h3><dl class="team-facts"><div><dt>Studiengang</dt><dd>${escapeHtml(member.study || "–")}</dd></div><div><dt>Lieblingsinsekt</dt><dd>${escapeHtml(member.favouriteInsect || "–")}</dd></div></dl>${member.contact ? `<a class="team-contact" href="${escapeHtml(safeUrl(member.contact))}">Kontakt →</a>` : ""}</div></article>`).join("");
-      $('#team-empty').hidden = team.length > 0;
-    } catch (error) { console.error(error); $('#team-empty').hidden = false; }
+      const data = await response.json();
+      const board = Array.isArray(data) ? data : data.board || [];
+      const honoraryMembers = Array.isArray(data) ? [] : data.honoraryMembers || [];
+      renderPeople('#board-grid', '#board-empty', board, 'board');
+      renderPeople('#honorary-grid', '#honorary-empty', honoraryMembers, 'honorary');
+    } catch (error) {
+      console.error(error);
+      const boardEmpty = $('#board-empty'); if (boardEmpty) boardEmpty.hidden = false;
+      const honoraryEmpty = $('#honorary-empty'); if (honoraryEmpty) honoraryEmpty.hidden = false;
+    }
   }
 
   function showToast(message) {

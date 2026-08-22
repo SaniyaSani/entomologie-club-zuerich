@@ -47,6 +47,14 @@ window.ENTO_SITE_CONFIG = {
     dataUrl: "data/team.json"
   },
 
+  donations: {
+    // Erst nach Eröffnung des Vereinskontos und interner Prüfung eintragen.
+    show: true,
+    iban: "",
+    accountHolder: "",
+    qrImageUrl: ""
+  },
+
   documents: {
     statutes: "statuten.html",
     codeOfConduct: "ehrenkodex.html"

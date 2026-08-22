@@ -25,32 +25,21 @@
       <a data-nav="events" href="events.html">Events</a>
       <a data-nav="about" href="ueber-uns.html">Über uns</a>
       <a data-nav="archive" href="archiv.html">Event-Archiv</a>
-      <a data-nav="club" href="verein.html">Verein</a>
+      <a data-nav="club" href="verein.html">Kontakt</a>
       <a class="button button-primary nav-join" data-member-only data-member-link href="#">Mitglied werden</a>
     </nav>
   </div>
 </header>
 <main id="main">
-  <section class="page-hero page-hero-about"><div class="shell"><p class="eyebrow eyebrow-blue">Der Club stellt sich vor</p><h1>Über uns</h1><p>Ein paar Infos über den Verein, die Statuten und unser Team.</p></div></section>
-  <!--
-  <section class="values-section section-white"><div class="shell values-grid">
-    <article><span>01</span><h2>Offen</h2><p>Willkommen sind Studierende und Interessierte mit und ohne Vorkenntnisse.</p></article>
-    <article><span>02</span><h2>Neugierig</h2><p>Wir lernen voneinander und nehmen uns Zeit für Beobachtung und Bestimmung.</p></article>
-    <article><span>03</span><h2>Verantwortungsvoll</h2><p>Wir achten Arten, Lebensräume und einen respektvollen Umgang miteinander.</p></article>
-  </div></section>
-  -->
+  <section class="page-hero page-hero-about"><div class="shell"><p class="eyebrow eyebrow-blue">Der Club stellt sich vor</p><h1>Über uns</h1><p>Wer wir sind, wie wir organisiert sind und welche Menschen hinter dem Club stehen.</p></div></section>
   <section class="about-us section-white">
     <div class="shell about-us-inner">
-      <div><p class="eyebrow eyebrow-blue">Der Verein</p><h2>Wer sind wir?</h2></div>
-      <div><p>
-        Der Studentische Entomologie-Club Zürich ist eine offene Gemeinschaft für alle, die Insekten kennenlernen, bestimmen oder erforschen möchten.
-        Gemeinsam organisieren wir Workshops, Exkursionen, Vorträge und viele weitere Events rund um die Welt der faszinierenden kleinen Tierchen.
-        Diese Events richten sich hauptsächlich an Studierende, andere Interessierte sind aber auch herzlich willkommen.
-        <br/>Uns ist ganz klar bewusst, dass nicht jeder alle Insekten gleich gut kennt (bei über 1.000.000 Arten wäre das auch ganz schön viel Arbeit).
-        Daher war schon bei unserer Gründung im August 2026 eines besonders wichtig: Alle sind bei uns willkommen!
-        Ob Anfänger oder Experte, niemand muss sich bei uns für sein (Un-)Wissen schämen!
-        Im Gegenteil: Unser Ziel ist, gemeinsam in lockerer, gemeinschaftlicher Atmosphäre die Vielfalt der Sechsbeiner zu entdecken und zu verstehen.
-      </p></div>
+      <p class="eyebrow eyebrow-blue">Der Verein</p>
+      <h2>Wer sind wir?</h2>
+      <div class="about-us-copy">
+        <p>Der Studentische Entomologie-Club Zürich ist eine offene Gemeinschaft für alle, die Insekten kennenlernen, bestimmen oder erforschen möchten. Gemeinsam organisieren wir Workshops, Exkursionen, Vorträge und viele weitere Events rund um die Welt der faszinierenden kleinen Tierchen. Diese Events richten sich hauptsächlich an Studierende, andere Interessierte sind aber auch herzlich willkommen.</p>
+        <p>Uns ist ganz klar bewusst, dass nicht jeder alle Insekten gleich gut kennt – bei über 1.000.000 Arten wäre das auch ganz schön viel Arbeit. Daher war schon bei unserer Gründung im August 2026 eines besonders wichtig: Alle sind bei uns willkommen! Ob Anfänger oder Experte, niemand muss sich bei uns für sein (Un-)Wissen schämen. Unser Ziel ist, gemeinsam in lockerer, gemeinschaftlicher Atmosphäre die Vielfalt der Sechsbeiner zu entdecken und zu verstehen.</p>
+      </div>
     </div>
   </section>
   <section class="documents-section" id="dokumente"><div class="shell"><h2><span class="section-icon" aria-hidden="true">
@@ -65,40 +54,34 @@
   </div></div></section>
   <section class="team-section">
     <div class="shell">
-      <div class="section-header">
-        <div>
-          <p class="eyebrow eyebrow-blue">Die Menschen hinter dem Club</p>
-          <h2>Aktueller Vorstand</h2>
-        </div>
-      </div>
-      <div id="team-grid" class="team-grid"></div>
-      <div id="team-empty" class="empty-state" hidden>Vorstandsprofile werden bald ergänzt.</div>
+      <details class="people-disclosure" open>
+        <summary>
+          <span>
+            <span class="eyebrow eyebrow-blue">Die Menschen hinter dem Club</span>
+            <span class="summary-heading">Aktueller Vorstand</span>
+          </span>
+          <span class="disclosure-action"><span class="when-open">Einklappen</span><span class="when-closed">Ausklappen</span></span>
+        </summary>
+        <div id="board-grid" class="team-grid"></div>
+        <div id="board-empty" class="empty-state" hidden>Vorstandsprofile werden bald ergänzt.</div>
+      </details>
     </div>
   </section>
   <section class="team-section">
     <div class="shell">
-      <div class="section-header">
-        <div>
-          <p class="eyebrow eyebrow-blue">Vielen Dank an...</p>
-          <h2>Die Ehrenmitglieder</h2>
-        </div>
-      </div>
-      <div id="team-grid" class="team-grid"></div>
-      <div id="team-empty" class="empty-state" hidden>Vorstandsprofile werden bald ergänzt.</div>
+      <details class="people-disclosure" open>
+        <summary>
+          <span>
+            <span class="eyebrow eyebrow-blue">Vielen Dank an …</span>
+            <span class="summary-heading">Ehrenmitglieder</span>
+          </span>
+          <span class="disclosure-action"><span class="when-open">Einklappen</span><span class="when-closed">Ausklappen</span></span>
+        </summary>
+        <div id="honorary-grid" class="team-grid"></div>
+        <div id="honorary-empty" class="empty-state" hidden>Ehrenmitglieder werden bald ergänzt.</div>
+      </details>
     </div>
   </section>
-  <!--
-  <section class="documents-teaser section-white">
-    <div class="shell archive-promo-inner">
-      <div>
-        <p class="eyebrow eyebrow-blue">Unser Verein</p>
-        <h2>Statuten und Ehrenkodex</h2>
-        <p>Wie wir organisiert sind und welche Werte unsere Veranstaltungen tragen.</p>
-      </div>
-      <a class="button button-primary" href="verein.html">Vereinsinformationen</a>
-    </div>
-  </section>
-  -->
 </main>
 <footer class="site-footer" id="contact">
   <div class="shell footer-grid">

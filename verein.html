@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="calendar-config.js" defer></script>
   <script src="calendar/ics-parser.js" defer></script>
-  <script src="app.js" defer></script><meta name="description" content="Dokumente, Kontakt und Impressum des Studentischen Entomologie-Clubs Zürich." /><title>Verein · Studentischer Entomologie-Club Zürich</title></head>
+  <script src="app.js" defer></script><meta name="description" content="Kontakt, Spenden und Impressum des Studentischen Entomologie-Clubs Zürich." /><title>Kontakt · Studentischer Entomologie-Club Zürich</title></head>
 <body data-page="club"><a class="skip-link" href="#main">Zum Inhalt springen</a>
 <header class="site-header" id="top">
   <div class="header-inner shell">
@@ -25,24 +25,39 @@
       <a data-nav="events" href="events.html">Events</a>
       <a data-nav="about" href="ueber-uns.html">Über uns</a>
       <a data-nav="archive" href="archiv.html">Event-Archiv</a>
-      <a data-nav="club" href="verein.html">Verein</a>
+      <a data-nav="club" href="verein.html">Kontakt</a>
       <a class="button button-primary nav-join" data-member-only data-member-link href="#">Mitglied werden</a>
     </nav>
   </div>
 </header>
 <main id="main">
-  <section class="page-hero"><div class="shell"><p class="eyebrow eyebrow-blue">Impressum</p><h1>Kontakt</h1><p>Dokumente, Kontaktangaben und rechtliche Informationen.</p></div></section>
-  <section class="documents-section" id="dokumente"><div class="shell"><h2><span class="section-icon" aria-hidden="true">
-    <!-- <img src="assets/dokument.png" alt="Dokumente"> -->
-  </span>Dokumente</h2><div class="document-grid">
-    <a class="document-card" data-statutes-link href="statuten.html"><span class="document-icon" aria-hidden="true">
-      <img src="assets/icons/document.svg" alt="Statuten">
-    </span><span><strong>Statuten</strong><small>Die offiziellen Statuten unseres Vereins.</small></span><span class="document-arrow">›</span></a>
-    <a class="document-card" data-code-link href="ehrenkodex.html"><span class="document-icon shield" aria-hidden="true">
-      <img src="assets/icons/siegel.svg" alt="Ehrenkodex">
-    </span><span><strong>Ehrenkodex</strong><small>Unsere Richtlinien für umweltbewusste und verantwortungsvolle Feldarbeit.</small></span><span class="document-arrow">›</span></a>
-  </div></div></section>
-  <section class="contact-page section-white" id="kontakt"><div class="shell contact-page-grid"><div><p class="eyebrow eyebrow-blue"></p><h2>Kontakt</h2><p>Fragen, Anmerkungen oder ein spannender Insektenfund? Wir freuen uns, von Dir zu hören.</p></div><div class="contact-box"><strong data-brand>Studentischer Entomologie-Club Zürich</strong><span data-address></span><a data-email-link href="mailto:info@example.org"></a></div></div></section>
+  <section class="page-hero"><div class="shell"><p class="eyebrow eyebrow-blue">Schreib uns</p><h1>Kontakt</h1><p>Fragen, Ideen, Insektenfunde oder Unterstützung für den Club – wir freuen uns, von dir zu hören.</p></div></section>
+  <section class="contact-page section-white" id="kontakt"><div class="shell contact-page-grid"><div><h2>Kontakt</h2><p>Fragen, Anmerkungen oder ein spannender Insektenfund? Wir freuen uns, von dir zu hören.</p></div><div class="contact-box"><strong data-brand>Studentischer Entomologie-Club Zürich</strong><span data-address></span><a data-email-link href="mailto:info@example.org"></a></div></div></section>
+  <section class="donations-section" id="spenden" data-donations-section>
+    <div class="shell">
+      <div class="donations-intro">
+        <p class="eyebrow eyebrow-blue">Den Club unterstützen</p>
+        <h2>Spenden</h2>
+        <p>Als studentischer Verein sind wir für Spenden sehr dankbar. Sie helfen uns, weiterhin Exkursionen, Bestimmungsabende, Vorträge und Workshops zu organisieren.</p>
+      </div>
+      <div class="donation-grid">
+        <article class="donation-card">
+          <h3>Geldspenden</h3>
+          <p>Geldspenden können direkt auf unser Vereinskonto überwiesen werden.</p>
+          <div class="bank-details" data-bank-details hidden>
+            <div><strong>IBAN</strong><span data-donation-iban></span></div>
+            <div><strong>Kontoinhaber:in</strong><span data-donation-holder></span></div>
+          </div>
+          <p class="bank-placeholder" data-bank-placeholder>Die Bankverbindung wird ergänzt, sobald das Vereinskonto eröffnet und die Angaben intern geprüft wurden.</p>
+          <div class="donation-qr" data-donation-qr hidden><img src="" alt="QR-Code für eine Spende" /></div>
+        </article>
+        <article class="donation-card">
+          <h3>Sachspenden</h3>
+          <p>Du möchtest uns zum Beispiel ein nicht mehr benötigtes Binokular, Bestimmungsliteratur oder anderes Material überlassen? Schreib uns bitte an <a data-email-link href="mailto:info@example.org"></a>, damit wir die Übergabe gemeinsam absprechen können.</p>
+        </article>
+      </div>
+    </div>
+  </section>
   <section class="legal-section" id="impressum"><div class="shell legal-grid"><article><p class="eyebrow eyebrow-blue"></p><h2>Impressum</h2><p><strong data-brand></strong><br /><span data-address></span><br /><a data-email-link href="mailto:info@example.org"></a></p><p class="legal-note">Bitte diese Angaben vor der Veröffentlichung mit den offiziellen Vereinsdaten ergänzen und prüfen.</p></article><article id="datenschutz"><p class="eyebrow eyebrow-blue"></p><h2>Datenschutz</h2><p>Diese statische Website setzt im Prototyp keine Analyse-Cookies. Beim Öffnen externer Links gelten die Datenschutzbestimmungen des jeweiligen Anbieters.</p><p class="legal-note">Vor der endgültigen Veröffentlichung sollte ein auf eure tatsächlichen Dienste abgestimmter Datenschutzhinweis ergänzt werden.</p></article></div></section>
 </main><footer class="site-footer" id="contact">
   <div class="shell footer-grid">

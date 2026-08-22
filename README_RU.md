@@ -2,7 +2,7 @@
 
 ## Что изменено
 
-- отдельные страницы: Startseite, Events, Über uns, Event-Archiv, Verein;
+- отдельные страницы: Startseite, Events, Über uns, Event-Archiv, Kontakt;
 - на странице Events только будущие события, toggle прошлых удалён;
 - прошедшие события автоматически появляются в архиве и группируются по FS/HS;
 - Vorstand загружается из `data/team.json`;
@@ -71,11 +71,13 @@ mode: "video"
 
 и замените `assets/hero-loop.mp4` и `assets/hero-poster.jpg`.
 
-## Как редактировать Vorstand
+## Как редактировать Vorstand и Ehrenmitglieder
 
-Откройте `data/team.json`. Для каждого человека доступны:
+Откройте `data/team.json`. Внутри есть два списка: `board` и `honoraryMembers`. Для каждого человека доступны:
 
-- `name`
+- `firstName`
+- `lastName`
+- `pronouns` (необязательно)
 - `role`
 - `study`
 - `favouriteInsect`
@@ -83,6 +85,12 @@ mode: "video"
 - `contact` (необязательно)
 
 Портреты удобно класть в `assets/team/`.
+
+У Ehrenmitglieder поля `role` и `study` не показываются. Разделы Vorstand и Ehrenmitglieder можно сворачивать клавиатурой или нажатием — это сделано через нативный HTML `details`.
+
+## Как добавить реквизиты для Spenden
+
+В `calendar-config.js` заполните блок `donations`. Пока `iban` пустой, сайт показывает нейтральный текст о том, что банковские реквизиты появятся после открытия счёта и внутренней проверки. Поле `qrImageUrl` необязательно.
 
 ## Как вернуть Mitglied werden
 
@@ -101,4 +109,6 @@ membershipUrl: "https://..."
 - портреты и данные Vorstand;
 - групповое фото;
 - официальные Statuten и Ehrenkodex (сейчас открываются страницы-заглушки);
+- фамилии и, по желанию, pronouns членов Vorstand;
+- IBAN и Kontoinhaber:in после открытия и проверки Vereinskontos;
 - Impressum и Datenschutz после проверки официальных данных.
