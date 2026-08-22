@@ -44,7 +44,7 @@ window.ENTO_SITE_CONFIG = {
   },
 
   team: {
-    dataUrl: "data/team.json"
+    dataUrl: "data/team.json?v=20260822-2"
   },
 
   donations: {
