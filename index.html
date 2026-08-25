@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#1238b8" />
   <link rel="icon" href="assets/club-logo-maskottchen.png" type="image/png" />
-  <link rel="stylesheet" href="styles.css?v=20260822-2" />
+  <link rel="stylesheet" href="styles.css?v=20260826-1" />
   <script src="calendar-config.js" defer></script>
   <script src="calendar/ics-parser.js" defer></script>
-  <script src="app.js?v=20260822-2" defer></script>
+  <script src="app.js?v=20260826-1" defer></script>
   <meta name="description" content="Studentischer Entomologie-Club Zürich: Exkursionen, Bestimmungsabende und Workshops." />
   <title>Studentischer Entomologie-Club Zürich</title>
 </head>
@@ -38,7 +38,10 @@
 </header>
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
-    <img id="hero-image" class="hero-media hero-image" src="assets/hero-group-placeholder.svg" alt="Mitglieder des Studentischen Entomologie-Clubs Zürich" />
+    <div id="hero-image-stack" class="hero-media hero-image-stack" aria-hidden="true">
+      <img id="hero-image" class="hero-image-layer is-visible" src="assets/hero-group-placeholder.svg" alt="" />
+      <img id="hero-image-next" class="hero-image-layer" src="assets/hero-group-placeholder.svg" alt="" />
+    </div>
     <video id="hero-video" class="hero-media hero-video" muted loop playsinline poster="assets/hero-poster.jpg" hidden aria-hidden="true">
       <source src="assets/hero-loop.mp4" type="video/mp4" />
     </video>
@@ -65,6 +68,80 @@
     <div class="shell intro-grid">
       <div><p class="eyebrow eyebrow-blue">Willkommen</p><h2>Kleine Tiere.<br />Grosse Vielfalt.</h2></div>
       <div><p data-home-intro></p><a class="text-action" href="ueber-uns.html">Den Club kennenlernen →</a></div>
+    </div>
+  </section>
+
+  <section class="photo-gallery section-white" aria-labelledby="gallery-title">
+    <div class="shell">
+      <div class="photo-gallery-head">
+        <div>
+          <p class="eyebrow eyebrow-blue">Feldnotizen</p>
+          <h2 id="gallery-title">Bilder aus dem Club</h2>
+        </div>
+        <p>Ein paar Momente aus Beobachtungen, Exkursionen und dem Staunen über Insekten. Die Bilder öffnen sich beim Anklicken in voller Grösse.</p>
+      </div>
+      <div class="photo-masonry">
+        <a class="photo-card" href="assets/gallery/swallowtail-lavender.webp" target="_blank" rel="noopener" aria-label="Schwalbenschwanz – Bild in voller Grösse öffnen">
+          <figure class="photo-figure">
+            <img src="assets/gallery/swallowtail-lavender.webp" alt="Schwalbenschwanz auf violetter Lavendelblüte" loading="lazy" />
+            <figcaption><strong>Schwalbenschwanz</strong><span>Lavendel im Sommersonnenschein</span></figcaption>
+          </figure>
+        </a>
+        <a class="photo-card" href="assets/gallery/skipper-face.webp" target="_blank" rel="noopener" aria-label="Dickkopffalter – Bild in voller Grösse öffnen">
+          <figure class="photo-figure">
+            <img src="assets/gallery/skipper-face.webp" alt="Dickkopffalter frontal auf einem Grashalm" loading="lazy" />
+            <figcaption><strong>Dickkopffalter</strong><span>Ganz nah dran</span></figcaption>
+          </figure>
+        </a>
+        <a class="photo-card" href="assets/gallery/stag-beetle.webp" target="_blank" rel="noopener" aria-label="Hirschkäfer – Bild in voller Grösse öffnen">
+          <figure class="photo-figure">
+            <img src="assets/gallery/stag-beetle.webp" alt="Hirschkäfer an einer Glasbox im Innenraum" loading="lazy" />
+            <figcaption><strong>Hirschkäfer</strong><span>Präparation &amp; Beobachtung</span></figcaption>
+          </figure>
+        </a>
+        <a class="photo-card" href="assets/gallery/robber-fly-prey.webp" target="_blank" rel="noopener" aria-label="Raubfliege – Bild in voller Grösse öffnen">
+          <figure class="photo-figure">
+            <img src="assets/gallery/robber-fly-prey.webp" alt="Raubfliege mit Beute auf einem grünen Blatt" loading="lazy" />
+            <figcaption><strong>Raubfliege</strong><span>Verhalten im Feld</span></figcaption>
+          </figure>
+        </a>
+        <a class="photo-card" href="assets/gallery/dragonfly-portrait.webp" target="_blank" rel="noopener" aria-label="Libelle – Bild in voller Grösse öffnen">
+          <figure class="photo-figure">
+            <img src="assets/gallery/dragonfly-portrait.webp" alt="Libelle frontal auf einem trockenen Blütenstängel" loading="lazy" />
+            <figcaption><strong>Libelle</strong><span>Makro-Porträt</span></figcaption>
+          </figure>
+        </a>
+        <a class="photo-card" href="assets/gallery/shield-bug-yellow-flowers.webp" target="_blank" rel="noopener" aria-label="Schildwanze – Bild in voller Grösse öffnen">
+          <figure class="photo-figure">
+            <img src="assets/gallery/shield-bug-yellow-flowers.webp" alt="Bunt schillernde Schildwanze auf gelben Blüten" loading="lazy" />
+            <figcaption><strong>Schildwanze</strong><span>Farben aus dem Feld</span></figcaption>
+          </figure>
+        </a>
+        <a class="photo-card" href="assets/gallery/pink-grasshopper.webp" target="_blank" rel="noopener" aria-label="Rosa Heuschrecke – Bild in voller Grösse öffnen">
+          <figure class="photo-figure">
+            <img src="assets/gallery/pink-grasshopper.webp" alt="Rosa Heuschrecke an einem Grashalm" loading="lazy" />
+            <figcaption><strong>Rosa Heuschrecke</strong><span>Unerwartete Farbe</span></figcaption>
+          </figure>
+        </a>
+        <a class="photo-card" href="assets/gallery/katydid-face.webp" target="_blank" rel="noopener" aria-label="Laubheuschrecke – Bild in voller Grösse öffnen">
+          <figure class="photo-figure">
+            <img src="assets/gallery/katydid-face.webp" alt="Grüne Laubheuschrecke frontal zwischen trockenen Halmen" loading="lazy" />
+            <figcaption><strong>Laubheuschrecke</strong><span>Direkter Blick</span></figcaption>
+          </figure>
+        </a>
+        <a class="photo-card" href="assets/gallery/grasshopper-branch.webp" target="_blank" rel="noopener" aria-label="Heuschrecke – Bild in voller Grösse öffnen">
+          <figure class="photo-figure">
+            <img src="assets/gallery/grasshopper-branch.webp" alt="Kleine Heuschrecke auf einem schrägen Stängel" loading="lazy" />
+            <figcaption><strong>Heuschrecke</strong><span>Am Wegesrand</span></figcaption>
+          </figure>
+        </a>
+        <a class="photo-card" href="assets/gallery/praying-mantis.webp" target="_blank" rel="noopener" aria-label="Gottesanbeterin – Bild in voller Grösse öffnen">
+          <figure class="photo-figure">
+            <img src="assets/gallery/praying-mantis.webp" alt="Gottesanbeterin an einem trockenen Halm" loading="lazy" />
+            <figcaption><strong>Gottesanbeterin</strong><span>Tarnung im Sommergras</span></figcaption>
+          </figure>
+        </a>
+      </div>
     </div>
   </section>
 

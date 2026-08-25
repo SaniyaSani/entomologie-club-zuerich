@@ -7,6 +7,7 @@
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const locale = "de-CH";
   const displayTimeZone = calendarConfig.timeZone || "Europe/Zurich";
+  let heroSlideshowTimer = null;
 
   const TYPE_LABELS = {
     meeting: "Sitzung", excursion: "Exkursion", identification: "Bestimmung",
@@ -95,22 +96,84 @@
   }
 
   function configureHero() {
+    const stack = $('#hero-image-stack');
     const image = $('#hero-image');
+    const nextImage = $('#hero-image-next');
     const video = $('#hero-video');
     const toggle = $('#video-toggle');
-    if (!image || !video || !toggle) return;
-    const hero = config.hero || {};
-    image.src = hero.imageUrl || "assets/hero-group-placeholder.svg";
-    image.style.objectPosition = hero.imagePosition || "center center";
-    video.poster = hero.posterUrl || "assets/hero-poster.jpg";
-    const source = $('source', video);
-    if (source) source.src = hero.videoUrl || "assets/hero-loop.mp4";
-    if (hero.mode === "video") {
-      image.hidden = true; video.hidden = false; toggle.hidden = false;
-      video.autoplay = true; video.load(); video.play().catch(() => {});
-    } else {
-      image.hidden = false; video.hidden = true; toggle.hidden = true;
+    if (!video || !toggle || (!image && !stack)) return;
+
+    if (heroSlideshowTimer) {
+      clearInterval(heroSlideshowTimer);
+      heroSlideshowTimer = null;
     }
+
+    const hero = config.hero || {};
+    const source = $('source', video);
+    const fallbackSlide = {
+      imageUrl: hero.imageUrl || "assets/hero-group-placeholder.svg",
+      imagePosition: hero.imagePosition || "center center"
+    };
+    const slides = (Array.isArray(hero.slides) && hero.slides.length ? hero.slides : [fallbackSlide]).map(slide => ({
+      imageUrl: slide.imageUrl || slide.src || fallbackSlide.imageUrl,
+      imagePosition: slide.imagePosition || slide.position || fallbackSlide.imagePosition || "center center"
+    }));
+
+    const applySlide = (element, slide) => {
+      if (!element || !slide) return;
+      element.src = slide.imageUrl;
+      element.style.objectPosition = slide.imagePosition || "center center";
+    };
+
+    video.poster = hero.posterUrl || "assets/hero-poster.jpg";
+    if (source) source.src = hero.videoUrl || "assets/hero-loop.mp4";
+
+    if (hero.mode === "video") {
+      if (stack) stack.hidden = true;
+      video.hidden = false;
+      toggle.hidden = false;
+      const icon = $('.video-toggle-icon', toggle);
+      if (icon) icon.textContent = "Ⅱ";
+      video.autoplay = true;
+      video.load();
+      video.play().catch(() => {});
+      return;
+    }
+
+    video.pause();
+    video.hidden = true;
+    toggle.hidden = true;
+    if (stack) stack.hidden = false;
+
+    const firstSlide = slides[0] || fallbackSlide;
+    applySlide(image, firstSlide);
+    image?.classList.add('is-visible');
+    nextImage?.classList.remove('is-visible');
+    if (nextImage) applySlide(nextImage, firstSlide);
+
+    slides.forEach(slide => {
+      const preloaded = new Image();
+      preloaded.src = slide.imageUrl;
+    });
+
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!nextImage || slides.length < 2 || reduceMotion) return;
+
+    let currentIndex = 0;
+    let visibleImage = image;
+    let hiddenImage = nextImage;
+    const slideDuration = Math.max(Number(hero.slideDurationMs) || 7200, 2400);
+
+    heroSlideshowTimer = window.setInterval(() => {
+      const nextIndex = (currentIndex + 1) % slides.length;
+      applySlide(hiddenImage, slides[nextIndex]);
+      requestAnimationFrame(() => hiddenImage.classList.add('is-visible'));
+      visibleImage.classList.remove('is-visible');
+      const previousVisible = visibleImage;
+      visibleImage = hiddenImage;
+      hiddenImage = previousVisible;
+      currentIndex = nextIndex;
+    }, slideDuration);
   }
 
   async function loadCalendar() {

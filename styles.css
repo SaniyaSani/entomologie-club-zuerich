@@ -53,6 +53,9 @@ button, input { font: inherit; }
 
 .hero { position: relative; min-height: 590px; display: grid; overflow: hidden; color: #fff; background: var(--blue-dark); }
 .hero-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hero-image-stack { overflow: hidden; }
+.hero-image-layer { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.6s ease; }
+.hero-image-layer.is-visible { opacity: 1; }
 .hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(3,19,35,.92) 0%, rgba(4,29,43,.70) 45%, rgba(5,40,54,.12) 82%), linear-gradient(0deg, rgba(3,26,37,.58), transparent 65%); }
 .hero-content { position: relative; z-index: 2; min-height: 590px; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 40px; padding-block: 70px 105px; }
 .hero-copy-block { max-width: 670px; }
@@ -75,6 +78,19 @@ button, input { font: inherit; }
 .intro-grid h2, .section-header h2, .archive-promo h2, .documents-section h2, .contact-page h2, .donations-section h2, .legal-section h2 { margin: 0; font-size: clamp(2.4rem, 5vw, 4.3rem); line-height: .98; letter-spacing: -.055em; }
 .intro-grid > div:last-child > p { margin: 30px 0 22px; color: var(--muted); font-size: 1.12rem; line-height: 1.8; }
 
+.photo-gallery { padding: 0 0 92px; background: #fff; }
+.photo-gallery-head { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,470px); gap: 24px; align-items: end; margin-bottom: 28px; }
+.photo-gallery-head h2 { margin: 0; font-size: clamp(2.4rem, 5vw, 4.3rem); line-height: .98; letter-spacing: -.055em; }
+.photo-gallery-head p:last-child { margin: 0; color: var(--muted); font-size: 1.02rem; line-height: 1.8; }
+.photo-masonry { column-count: 3; column-gap: 18px; }
+.photo-card { display: block; break-inside: avoid; margin-bottom: 18px; text-decoration: none; }
+.photo-figure { margin: 0; overflow: hidden; border: 1px solid rgba(223,229,239,.88); border-radius: 18px; background: #fff; box-shadow: 0 14px 34px rgba(22,44,91,.08); transition: transform .18s ease, box-shadow .18s ease; }
+.photo-card:hover .photo-figure, .photo-card:focus-visible .photo-figure { transform: translateY(-3px); box-shadow: 0 18px 38px rgba(22,44,91,.12); }
+.photo-figure img { width: 100%; height: auto; transition: transform .5s ease; }
+.photo-card:hover img, .photo-card:focus-visible img { transform: scale(1.018); }
+.photo-figure figcaption { display: grid; gap: 3px; padding: 14px 16px 16px; }
+.photo-figure strong { color: var(--blue-dark); font-size: 1rem; }
+.photo-figure span { color: var(--muted); font-size: .88rem; }
 .events-section { padding: 78px 0 88px; background: var(--canvas); }
 .home-events { padding-top: 86px; }
 .page-events { padding-top: 68px; }
@@ -238,7 +254,7 @@ button, input { font: inherit; }
   .main-nav > a { padding: 13px; }
   .event-row { grid-template-columns: 145px minmax(0,1fr); }
   .event-more { grid-column: 2; justify-self: start; padding: 0; }
-  .intro-grid, .contact-page-grid { grid-template-columns: 1fr; gap: 20px; }
+  .intro-grid, .contact-page-grid, .photo-gallery-head { grid-template-columns: 1fr; gap: 20px; }
   .team-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-legal { grid-column: 1/-1; justify-items: start; text-align: left; }
@@ -258,6 +274,8 @@ button, input { font: inherit; }
   .video-toggle { justify-self: start; width: 66px; height: 66px; margin-bottom: 65px; }
   .hero-overlay { background: linear-gradient(90deg,rgba(4,20,29,.91),rgba(5,28,39,.55)), linear-gradient(0deg,rgba(2,21,31,.72),transparent 65%); }
   .page-hero { padding: 55px 0 50px; }
+  .photo-gallery { padding-bottom: 74px; }
+  .photo-masonry { column-count: 2; }
   .page-hero h1 { font-size: clamp(2.9rem,13vw,4.4rem); }
   .section-header { align-items: flex-start; flex-direction: column; }
   .event-row { grid-template-columns: 108px 1fr; gap: 14px; padding: 14px; }
@@ -280,6 +298,7 @@ button, input { font: inherit; }
 }
 @media (max-width: 420px) {
   .brand-copy { max-width: 185px; font-size: .82rem; }
+  .photo-masonry { column-count: 1; }
   .brand img { width: 50px; height: 50px; }
   .menu-button { width: 42px; height: 42px; }
   .event-row { grid-template-columns: 1fr; }

@@ -32,10 +32,37 @@ window.ENTO_SITE_CONFIG = {
   hero: {
     // "image" für ein Gruppenfoto, "video" für das Banner-Video.
     mode: "image",
-    imageUrl: "assets/hero-group-placeholder.svg",
+    imageUrl: "assets/gallery/swallowtail-lavender.webp",
     videoUrl: "assets/hero-loop.mp4",
     posterUrl: "assets/hero-poster.jpg",
-    imagePosition: "center center"
+    imagePosition: "58% center",
+    slideDurationMs: 7200,
+    slides: [
+      {
+        imageUrl: "assets/gallery/swallowtail-lavender.webp",
+        imagePosition: "58% center"
+      },
+      {
+        imageUrl: "assets/gallery/skipper-face.webp",
+        imagePosition: "center center"
+      },
+      {
+        imageUrl: "assets/gallery/dragonfly-portrait.webp",
+        imagePosition: "center center"
+      },
+      {
+        imageUrl: "assets/gallery/shield-bug-yellow-flowers.webp",
+        imagePosition: "center center"
+      },
+      {
+        imageUrl: "assets/gallery/pink-grasshopper.webp",
+        imagePosition: "52% center"
+      },
+      {
+        imageUrl: "assets/gallery/praying-mantis.webp",
+        imagePosition: "center center"
+      }
+    ]
   },
 
   content: {
