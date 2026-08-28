@@ -149,6 +149,9 @@ button, input { font: inherit; }
 .about-us-copy { width: 100%; margin-top: 28px; }
 .about-us-copy p { margin: 0; color: var(--muted); font-size: 1.08rem; line-height: 1.8; }
 .about-us-copy p + p { margin-top: 16px; }
+.about-us-image { width: 100%; max-width: 100%; margin: 2.5rem 0 0; text-align: center; }
+.about-us-image img { display: block; width: 100%; height: auto; border-radius: 16px; }
+.about-us-image figcaption { margin-top: 0.75rem; font-size: 1.2rem; font-style: italic; }
 
 .team-section { padding: 78px 0; }
 .team-section + .team-section { padding-top: 0; }
