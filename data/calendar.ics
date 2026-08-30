@@ -8,15 +8,17 @@ X-WR-TIMEZONE:Europe/Zurich
 BEGIN:VEVENT
 DTSTART:20260905T070000Z
 DTEND:20260905T080000Z
-DTSTAMP:20260830T072550Z
+DTSTAMP:20260830T103547Z
 UID:53s5l33gvb5lp7p3fdth41pe13@google.com
 CREATED:20260829T083040Z
-DESCRIPTION:TYPE: Workshop<br>SHORT: Gemeinsame Insektensuche und Bestimmun
- g.<br>IMAGE: <a href="https://kommodo.ai/i/CRyOz88Oc5iaN1WnGt3T">https://ko
- mmodo.ai/i/CRyOz88Oc5iaN1WnGt3T</a><br>REGISTRATION_REQUIRED: false<br>REGI
- STRATION_URL:  <br>COST: Kostenlos<br>AUDIENCE: Alle Interessierten<br>LANG
- UAGE: Deutsch<br>SEMESTER: HS 2026
-LAST-MODIFIED:20260829T084040Z
+DESCRIPTION:TYPE: workshop<br>SHORT: Eine kleine Testbeschreibung<br>IMAGE:
+  <a href="https://pixabay.com/de/images/download/webentwicklerin-aster-4454
+ 938_1920.jpg">https://pixabay.com/de/images/download/webentwicklerin-aster-
+ 4454938_1920.jpg</a><br>REGISTRATION_REQUIRED: no<br>REGISTRATION_URL:  <br
+ >COST: CHF 5<br>AUDIENCE: members<br>LANGUAGE: DE<br>SEMESTER: HS 2026<br><
+ br>Dies ist eine Beschreibung des Events. Hier stehen viele wichtige Inform
+ ationen.<br><br>Dieser Text ist <b>Fett.</b> Dieser ist <i>kursiv</i>
+LAST-MODIFIED:20260830T103325Z
 SEQUENCE:1
 STATUS:CONFIRMED
 SUMMARY:Probe-Event
@@ -25,7 +27,7 @@ END:VEVENT
 BEGIN:VEVENT
 DTSTART:20260809T080000Z
 DTEND:20260809T113000Z
-DTSTAMP:20260830T072550Z
+DTSTAMP:20260830T103547Z
 UID:7f9pbk7u4hvd94eo09mbcqqcb2@google.com
 CREATED:20260801T231839Z
 LAST-MODIFIED:20260801T231858Z
