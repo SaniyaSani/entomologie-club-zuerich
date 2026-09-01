@@ -6,28 +6,9 @@ METHOD:PUBLISH
 X-WR-CALNAME:Studentischer Entomologie-Club Zürich
 X-WR-TIMEZONE:Europe/Zurich
 BEGIN:VEVENT
-DTSTART:20260906T070000Z
-DTEND:20260906T080000Z
-DTSTAMP:20260901T151143Z
-UID:53s5l33gvb5lp7p3fdth41pe13@google.com
-CREATED:20260829T083040Z
-DESCRIPTION:TYPE: workshop<br>SHORT: Eine kleine Testbeschreibung<br>IMAGE:
-  <a href="https://pixabay.com/de/images/download/webentwicklerin-aster-4454
- 938_1920.jpg">https://pixabay.com/de/images/download/webentwicklerin-aster-
- 4454938_1920.jpg</a><br>REGISTRATION_REQUIRED: no<br>REGISTRATION_URL:  <br
- >COST: CHF 5<br>AUDIENCE: members<br>LANGUAGE: DE<br>SEMESTER: HS 2026<br><
- br>Dies ist eine Beschreibung des Events. Hier stehen viele wichtige Inform
- ationen.<br><br>Dieser Text ist <b>Fett.</b> Dieser ist <i>kursiv</i>
-LAST-MODIFIED:20260830T110033Z
-SEQUENCE:2
-STATUS:CONFIRMED
-SUMMARY:Probe-Event
-TRANSP:OPAQUE
-END:VEVENT
-BEGIN:VEVENT
 DTSTART:20260809T080000Z
 DTEND:20260809T113000Z
-DTSTAMP:20260901T151143Z
+DTSTAMP:20260901T180740Z
 UID:7f9pbk7u4hvd94eo09mbcqqcb2@google.com
 CREATED:20260801T231839Z
 LAST-MODIFIED:20260801T231858Z
