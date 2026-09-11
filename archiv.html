@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1238b8" />
+  <link rel="icon" href="assets/club-logo-maskottchen.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Event-Archiv des Studentischen Entomologie-Clubs Zürich." />
+  <script src="calendar.js" defer></script>
+  <title>Event-Archiv · Studentischer Entomologie-Club Zürich</title>
+</head>
+<body data-page="archiv">
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header id="site-header"></header>
+
+<main class="archive">
+
+<section
+    class="page-hero page-hero--static"
+    data-hero="static"
+    style="--hero-image: url('assets/gallery/katydid-face.webp');"
+    aria-label="Page introduction"
+>
+
+    <div class="page-hero__overlay"></div>
+
+    <div class="page-hero__content">
+
+        <p class="page-hero__eyebrow">
+            Aus vergangenen Semestern
+        </p>
+
+        <h1 class="page-hero__title">
+            Event-Archiv
+        </h1>
+
+        <p class="page-hero__description">
+            Exkursionen, Vorträge und andere Events aus vergangenen Semestern.
+        </p>
+
+    </div>
+
+</section>
+
+<div class="events-shell">
+
+
+    <section class="event-filters" aria-label="Events filtern">
+
+
+        <button
+            type="button"
+            class="event-filter active"
+            data-filter-type=""
+            aria-pressed="true"
+        >
+            Alle
+        </button>
+
+        <button
+            type="button"
+            class="event-filter"
+            data-filter-type="excursion"
+            aria-pressed="false"
+        >
+            Exkursion
+        </button>
+
+        <button
+            type="button"
+            class="event-filter"
+            data-filter-type="workshop"
+            aria-pressed="false"
+        >
+            Workshop
+        </button>
+
+        <button
+            type="button"
+            class="event-filter"
+            data-filter-type="talk"
+            aria-pressed="false"
+        >
+            Vortrag
+        </button>
+
+        <button
+            type="button"
+            class="event-filter"
+            data-filter-type="session"
+            aria-pressed="false"
+        >
+            Sitzung
+        </button>
+
+        <button
+            type="button"
+            class="event-filter"
+            data-filter-type="event"
+            aria-pressed="false"
+        >
+            Sonstige
+        </button>
+
+
+</section>
+
+
+    <section id="events-container" class="events-container">
+
+        <div class="event-status-card">
+            Events werden geladen...
+        </div>
+
+    </section>
+
+</main>
+
+<dialog id="event-dialog" class="event-dialog">
+
+    <button
+        id="dialog-close"
+        type="button"
+        aria-label="Schliessen"
+    >
+        ×
+    </button>
+
+    <div id="dialog-image"></div>
+
+    <div id="dialog-content"></div>
+
+</dialog>
+
+
+<footer id="site-footer"></footer>
+<script src="components/site.js"></script>
+
+
+</body></html>

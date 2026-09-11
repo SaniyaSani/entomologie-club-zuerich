@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1238b8" />
+  <link rel="icon" href="assets/club-logo-maskottchen.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Studentischer Entomologie-Club Zürich: Exkursionen, Vorträge und Workshops." />
+  <script src="app.js" defer></script>
+  <title>Studentischer Entomologie-Club Zürich</title>
+</head>
+
+<body data-page="about">
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<header id="site-header"></header>
+
+<main id="main">
+  
+  <section class="page-hero page-hero--slideshow"
+    data-hero="slideshow"
+    data-interval="5000">
+    <div class="page-hero__slides" aria-hidden="true">
+
+        <div
+            class="page-hero__slide is-active"
+            style="background-image: url(assets/gallery/swallowtail-lavender.webp);"
+        ></div>
+
+        <div
+            class="page-hero__slide"
+            style="background-image: url(assets/gallery/robber-fly-prey.webp);"
+        ></div>
+
+        <div
+            class="page-hero__slide"
+            style="background-image: url('assets/gallery/pink-grasshopper.webp');"
+        ></div>
+
+        <div
+            class="page-hero__slide"
+            style="background-image: url('assets/gallery/dragonfly-portrait.webp');"
+        ></div>
+
+        <div
+            class="page-hero__slide"
+            style="background-image: url('assets/gallery/katydid-face.webp');"
+        ></div>
+
+        <div
+            class="page-hero__slide"
+            style="background-image: url('assets/gallery/skipper-face.webp');"
+        ></div>
+
+        <div
+            class="page-hero__slide"
+            style="background-image: url('assets/gallery/grasshopper-branch.webp');"
+        ></div>
+
+        <div
+            class="page-hero__slide"
+            style="background-image: url('assets/gallery/shield-bug-yellow-flowers.webp');"
+        ></div>
+
+    </div>
+
+    <div class="page-hero__overlay"></div>
+
+    <div class="page-hero__content">
+
+        <p class="page-hero__eyebrow">Insekten · Exkursionen · Gemeinschaft</p>
+
+        <h1 class="page-hero__title">
+            Entdecke<br>die Welt<br>der Insekten
+        </h1>
+
+        <p class="page-hero__description">
+            Exkursionen, Workshops und andere Events für Studierende rund um das Thema Insekten.
+        </p>
+
+    </div>
+    <div class="hero-wave" aria-hidden="true"></div>
+</section>
+
+  <section class="home-intro section-white">
+    <div class="shell intro-grid">
+      <div><p class="eyebrow eyebrow-blue">Willkommen</p><h2>Kleine Tiere.<br />Grosse Vielfalt.</h2></div>
+      <div><p>Wir verbinden Studierende, Forschende und Insektenbegeisterte in Zürich. Gemeinsam entdecken, bestimmen und dokumentieren wir die faszinierende Vielfalt der Insekten. Keine Vorkentnisse nötig, Anfänger willkommen!</p>
+        <a class="text-action" href="ueber-uns.html">Den Club kennenlernen →</a></div>
+    </div>
+  </section>
+
+
+<section class="shell impression-gallery">
+
+  <h2>Impressionen aus dem Club</h2>
+
+  <!-- Slideshow container -->
+<div class="slideshow-container">
+
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <img src="assets/gallery/swallowtail-lavender.webp">
+    <div class="text">Schwalbenschwanz</div>
+  </div>
+
+  <div class="mySlides fade">
+    <img src="assets/gallery/robber-fly-prey.webp">
+    <div class="text">Raubfliege mit Beute</div>
+  </div>
+
+  <div class="mySlides fade">
+    <img src="assets/gallery/pink-grasshopper.webp">
+    <div class="text">Pinke Heuschrecke</div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+
+<!-- The dots/circles -->
+<div class="slideshow-dots">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<script src="slideshow.js"></script>
+</section>
+
+</main>
+
+<footer id="site-footer"></footer>
+<script src="components/site.js"></script>
+<script src="components/hero.js"></script>
+
+</body></html>
