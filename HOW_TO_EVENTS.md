@@ -9,7 +9,7 @@ Bitte lies dir vorher den Rest dieses Dokuments durch.
 ## Wie ist die Tabelle aufgebaut?
 Die Spalten stellen die jeweiligen "Parameter" der Events dar, die Zeilen dann die einzelnen Events. Wenn möglich, sollen diese immer chronologisch von oben nach unten eingetragen werden.
 
-<code style="color: red">Bitte unter KEINEN UMSTÄNDEN die Spalten neu sortieren, neue Werte zu Drop-Downs hinzufügen oder neue Spalten erstelle!. Dies könnte dazu führe, dass die Events falsch oder sogar gar nicht auf der Webseite angezeigt werden! Bei Fehlern, Fragen und Anmerkungen zum Event-System bitte an den aktuellen **Social Media Manager** wenden.</code>
+$${\color{red}Bitte unter KEINEN UMSTÄNDEN die Spalten neu sortieren, neue Werte zu Drop-Downs hinzufügen oder neue Spalten erstelle!. Dies könnte dazu führe, dass die Events falsch oder sogar gar nicht auf der Webseite angezeigt werden! Bei Fehlern, Fragen und Anmerkungen zum Event-System bitte an den aktuellen **Social Media Manager** wenden.}$$
 
 ## Zu den einzelnen Parametern
 
