@@ -71,3 +71,36 @@ Es gibt hier noch zwei spezielle Fälle bei den Eingabewerten:
 - `empty` - es wird kein Bild angezeigt (gut geeignet für z. B. kleinere Events)
 
 Wird dieses Feld leergelassen, wird stattdessen `assets/events/fallback.png` verwendet.
+
+### REGISTARTION_REQUIRED ~
+Ob eine Anmeldung **erforderlich** ist. Gut geeignet für Events mit begrenzter Teilnehmer-Anzahl, Gruppen-Tickets etc.
+
+### REGISTRATION_URL
+Wenn `REGISTRATION_REQUIRED` auf `yes` gesetzt ist, dann hier die URL zum Anmeldeformular einfügen. Hierfür eignet sich z. B. Google-Forms.
+
+### REGISTARTION_OPEN ~
+Ob eine Anmeldung **noch möglich** ist, z. B. bei Events mit begrenzter Teilnehmer-Anzahl, Anmelde-Deadline etc.
+
+**Muss manuell im Sheets umgeschaltet werden!!!**
+
+Bei begrenzter Teilnehmer Anzahl gilt i. d. R. "first come, first serve", es gibt keine "Vorteile" für Mitglieder. Bei Events `nur für Mitglieder` können sich nur Mitglieder anmelden, d. h. Anmeldungen von nicht-Mitgliedern werden nicht berücksichtigt. Im Zweifel mit anderen Teammitgliedern absprechen.
+
+### AUDIENCE ~
+`all` für alle, `members only` nur für Mitglieder. Vereinssitzungen sind zum Beispiel eine `members only` Veranstaltung (ausser offene Sitzungen natürlich).
+
+### LANGUAGE
+Hier die "Hauptsprache" der Veranstaltung eintragen, z. B. `DE` für Deutsch, `EN` für Englisch, etc. Bei mehreren Sprachen im Format `DE / EN` eintragen.
+
+### COST
+Die Kosten pro Person werden hier als Freitext eingetragen. Mögliche Eingabewerte:
+
+- `kostenlos`
+- `5 CHF`
+- `5-10 CHF`
+- bei nicht genau kalkulierbaren oder variablen Kosten - `variabel`
+
+### SEMESTER ~
+Das Semester, dem die Veranstaltung zugeordnet wird (wichtig für das **Event-Archiv**). Die offiziellen Semesterzeiten können [hier](https://www.students.uzh.ch/de/dates/dates.html) nachgelesen werden.
+
+### PUBLISHED ~ (WICHTIG!!!)
+Dies ist der "letzte Drehhebel", bevor die Veranstaltung veröffentlicht wird. Sobald dieser Wert auf `yes` gesetzt wird, wird das Event auf der Webseite veröffentlicht. Bitte vor dem Veröffentlichen noch einmal alle anderen Daten kontrollieren. Im Zweifel nochmal mit anderen Teammitgliedern absprechen.
