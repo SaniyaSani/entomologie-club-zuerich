@@ -9,6 +9,8 @@ Bitte lies dir vorher den Rest dieses Dokuments durch.
 ## Wie ist die Tabelle aufgebaut?
 Die Spalten stellen die jeweiligen "Parameter" der Events dar, die Zeilen dann die einzelnen Events. Wenn möglich, sollen diese immer chronologisch von oben nach unten eingetragen werden.
 
+<code style="color: red">Bitte unter KEINEN UMSTÄNDEN die Spalten neu sortieren, neue Werte zu Drop-Downs hinzufügen oder neue Spalten erstelle!. Dies könnte dazu führe, dass die Events falsch oder sogar gar nicht auf der Webseite angezeigt werden! Bei Fehlern, Fragen und Anmerkungen zum Event-System bitte an den aktuellen **Social Media Manager** wenden.</code>
+
 ## Zu den einzelnen Parametern
 
 Parameter, die als Dropdown ausgewählt werden, werden hier mit ~ markiert.
@@ -47,6 +49,28 @@ Bitte nicht zu lang wählen, da dies auf der Event-Ansicht angezeigt wird. Im Zw
 
 ### SHORT
 Kurzbeschreibung des Events in einem Satz. Bitte nicht zu lang wählen, da dies auf der Event-Ansicht angezeigt wird.
+
+### DESCRIPTION
+Längere Beschreibung des Events, die bei der auch auf wichtige Details eingegangen wird, zum Beispiel:
+
+- Programm/Inhalte
+- Was muss man mitbringen?
+- Kosten (Studentenrabatt, Reisekosten etc.)
+- ggf. Treffpunkt
+- etc.
+
+Datum, Uhrzeit und Treffpunkt werden hier in aller Regel **NICHT** nochmal wiederholt
+
+Die Beschreibung verwendet **Markdown** (darin ist z. B. auch diese Seite geschrieben). Hier das wichtigste
+
+- `**fett**` dieser Text ist **fett**
+- `*kursiv*` dieser Text ist *kursiv*
+- ``### Subheading` für Zwischenüberschriften (nur wenn notwendig)
+- Absatz für Absätze
+- `> Infobox` für die hellblauen Infoboxen. Diese können verwendet werden, um "good to know" Sachen mitzuteilen (sparsam verwenden)
+- `[hier](https://www.uzh.ch/de.html)` erzeugt einen Link, wie [hier](https://www.uzh.ch/de.html)
+
+Es empfiehlt sich, die Beschreibung vorher im Editor deiner Wahl (z. B. Word) zu schreiben und dann in das Tabellenfeld zu kopieren.
 
 ### IMAGE
 Hier kommt die Bild-URL für die "normale" Event-Ansicht hin. Valide Werte sind Bild-URLs aus dem Internet oder Dateipfad zum Bild im GitHub-Ordner.
@@ -104,3 +128,14 @@ Das Semester, dem die Veranstaltung zugeordnet wird (wichtig für das **Event-Ar
 
 ### PUBLISHED ~ (WICHTIG!!!)
 Dies ist der "letzte Drehhebel", bevor die Veranstaltung veröffentlicht wird. Sobald dieser Wert auf `yes` gesetzt wird, wird das Event auf der Webseite veröffentlicht. Bitte vor dem Veröffentlichen noch einmal alle anderen Daten kontrollieren. Im Zweifel nochmal mit anderen Teammitgliedern absprechen.
+
+## Was muss ich machen, wenn ein Event zu Ende ist?
+Nach dem Ablaufen des Events wird dieses automatisch ins Event-Archiv einsortiert. Trotzdem empfiehlt sich, folgendes zu kontrollieren:
+
+- Ist das Semester per Dropdown richtig ausgefüllt? (wichtig für die Einordnung ins Archiv)
+- Sind alle anderen Parameter korrekt?
+- Falls `REGISTARTION_OPEN` = `yes`: Manuell auf `no` umschalten.
+- **NICHT** `PUBLISHED` auf `no` umstellen (Event ist sonst gar nicht sichtbar)
+
+## Ich habe ein Event eingetragen. Wann ist es sichtbar?
+Sobald `PUBLISHED` auf `yes` umgestellt wird, ist das Event beim nächsten Reload der Seite sichtbar. Manchmal dauert es ein wenig, bis die Events geladen werden (z. B. bei schlechter Verbindung). Sollten die Events nicht erscheinen, empfiehlt sich, die Seite neu zu laden.
