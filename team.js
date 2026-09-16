@@ -48,7 +48,7 @@ fetch("data/team.json")
       studyValue.textContent = member.study;
 
       const insectLabel = document.createElement("dt");
-      insectLabel.textContent = "Lieblings-Arthropode";
+      insectLabel.textContent = "Lieblingstier";
 
       const insectValue = document.createElement("dd");
 
@@ -128,7 +128,7 @@ fetch("data/honorary.json")
       details.className = "vorstand-details";
 
       const insectLabel = document.createElement("dt");
-      insectLabel.textContent = "Lieblings-Arthropode";
+      insectLabel.textContent = "Lieblingstier";
 
       const insectValue = document.createElement("dd");
 
